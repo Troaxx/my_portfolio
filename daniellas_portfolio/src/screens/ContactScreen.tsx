@@ -7,11 +7,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import PublicIcon from '@mui/icons-material/Public';
 import './ContactScreen.css';
 
-interface ContactScreenProps {
-  onBack: () => void;
-}
-
-export const ContactScreen: React.FC<ContactScreenProps> = ({ onBack }) => {
+export const ContactScreen: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -84,7 +80,7 @@ export const ContactScreen: React.FC<ContactScreenProps> = ({ onBack }) => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  placeholder="Tell me about your project or just say hi"
+                  placeholder="Tell me about your project or just say hi!"
                 />
               </div>
               <Button type="submit" variant="quest" size="large">

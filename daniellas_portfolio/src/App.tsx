@@ -14,8 +14,8 @@ type Screen = 'home' | 'about' | 'skills' | 'projects' | 'contact';
 function App() {
   const [currentScreen, setCurrentScreen] = useState<Screen>('home');
 
-  const goToScreen = (screen: Screen) => {
-    setCurrentScreen(screen);
+  const goToScreen = (screen: string) => {
+    setCurrentScreen(screen as Screen);
     
     const element = document.getElementById(screen);
     if (element) {
@@ -51,34 +51,23 @@ function App() {
       <FloatingContactButton onClick={() => goToScreen('contact')} />
 
       <div id="home">
-        <HomeScreen onStart={() => goToScreen('about')} />
+        <HomeScreen />
       </div>
       
       <div id="about">
-        <AboutScreen 
-          onNext={() => goToScreen('skills')} 
-          onBack={() => goToScreen('home')} 
-        />
+        <AboutScreen />
       </div>
       
       <div id="skills">
-        <SkillsScreen 
-          onNext={() => goToScreen('projects')} 
-          onBack={() => goToScreen('about')} 
-        />
+        <SkillsScreen />
       </div>
       
       <div id="projects">
-        <ProjectsScreen 
-          onNext={() => goToScreen('contact')} 
-          onBack={() => goToScreen('skills')} 
-        />
+        <ProjectsScreen />
       </div>
       
       <div id="contact">
-        <ContactScreen 
-          onBack={() => goToScreen('projects')}
-        />
+        <ContactScreen />
       </div>
     </div>
   );

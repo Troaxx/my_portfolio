@@ -1,22 +1,17 @@
 import React, { useState } from 'react';
-import { Button, Card } from '../components';
+import { Card, TechMarquee } from '../components';
 import CodeIcon from '@mui/icons-material/Code';
 import StorageIcon from '@mui/icons-material/Storage';
 import BuildIcon from '@mui/icons-material/Build';
 import AppsIcon from '@mui/icons-material/Apps';
 import './SkillsScreen.css';
 
-interface SkillsScreenProps {
-  onNext: () => void;
-  onBack: () => void;
-}
-
 interface Skill {
   name: string;
   category: string;
 }
 
-export const SkillsScreen: React.FC<SkillsScreenProps> = ({ onNext, onBack }) => {
+export const SkillsScreen: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   const skills: Skill[] = [
@@ -49,6 +44,8 @@ export const SkillsScreen: React.FC<SkillsScreenProps> = ({ onNext, onBack }) =>
         <h1 className="skills-screen__title">Skills & Technologies</h1>
         <p className="skills-screen__subtitle">What I work with</p>
 
+        <TechMarquee />
+
         <div className="skills-categories">
           {categories.map((category) => (
             <button
@@ -69,15 +66,6 @@ export const SkillsScreen: React.FC<SkillsScreenProps> = ({ onNext, onBack }) =>
               <p className="skill-card__label">Proficiency</p>
             </Card>
           ))}
-        </div>
-
-        <div className="skills-screen__actions">
-          <Button onClick={onBack} variant="secondary">
-            Previous
-          </Button>
-          <Button onClick={onNext} variant="quest">
-            Continue
-          </Button>
         </div>
       </div>
     </div>

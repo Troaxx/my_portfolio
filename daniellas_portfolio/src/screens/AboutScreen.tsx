@@ -1,22 +1,40 @@
 import React from 'react';
-import { Button, Card, ProgressBar } from '../components';
-import PersonIcon from '@mui/icons-material/Person';
+import { Card, ProgressBar } from '../components';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import TrackChangesIcon from '@mui/icons-material/TrackChanges';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import StarIcon from '@mui/icons-material/Star';
+import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import './AboutScreen.css';
 
-interface AboutScreenProps {
-  onNext: () => void;
-  onBack: () => void;
-}
-
-export const AboutScreen: React.FC<AboutScreenProps> = ({ onNext, onBack }) => {
+export const AboutScreen: React.FC = () => {
   const stats = [
     { label: 'Problem Solving', value: 95 },
     { label: 'Team Collaboration', value: 90 },
     { label: 'Creativity', value: 88 },
     { label: 'Adaptability', value: 92 },
+  ];
+
+  const achievements = [
+    {
+      icon: <EmojiEventsIcon />,
+      title: 'PolyFinTechAPI100 2025 - Category Finalist',
+      description: 'Advise, Understand, Reflect, Act - Wealth that learns you, Advice that evolves with you. Built for PolyFinTechAPI100 2025 by Team Tweaking.',
+      date: '2025'
+    },
+    {
+      icon: <WorkspacePremiumIcon />,
+      title: 'KOSEN Global Camp - Most Feasible Award',
+      description: 'Prototype developed for KOSEN Global Camp Group A3, focusing on solving over-tourism issues in Japan.',
+      date: '2024'
+    },
+    {
+      icon: <StarIcon />,
+      title: 'PolyFinTechAPI100 2024 - Category Finalist',
+      description: 'Proposed innovative changes to TEE-UP application.',
+      date: '2024'
+    },
   ];
 
   return (
@@ -50,19 +68,6 @@ export const AboutScreen: React.FC<AboutScreenProps> = ({ onNext, onBack }) => {
         </Card>
 
         <div className="about-screen__grid">
-          <Card className="about-card">
-            <div className="about-card__header">
-              <PersonIcon className="about-card__icon" />
-              <h3>Quick Facts</h3>
-            </div>
-            <ul className="about-facts">
-              <li>Based in Singapore</li>
-              <li>Student at Temasek Polytechnic</li>
-              <li>Learning React & TypeScript</li>
-              <li>Gundam enthusiast</li>
-              <li>Always up for a challenge</li>
-            </ul>
-          </Card>
 
           <Card className="stats-card">
             <div className="stats-card__header">
@@ -103,13 +108,18 @@ export const AboutScreen: React.FC<AboutScreenProps> = ({ onNext, onBack }) => {
           </Card>
         </div>
 
-        <div className="about-screen__actions">
-          <Button onClick={onBack} variant="secondary">
-            Previous
-          </Button>
-          <Button onClick={onNext} variant="quest">
-            Continue
-          </Button>
+        <div className="achievements-section">
+          <h2 className="section-title">Achievements & Milestones</h2>
+          <div className="achievements-grid">
+            {achievements.map((achievement, index) => (
+              <Card key={index} hover className="achievement-card">
+                <div className="achievement-card__icon">{achievement.icon}</div>
+                <h3 className="achievement-card__title">{achievement.title}</h3>
+                <p className="achievement-card__description">{achievement.description}</p>
+                <span className="achievement-card__date">{achievement.date}</span>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </div>

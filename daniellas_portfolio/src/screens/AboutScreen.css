@@ -183,6 +183,86 @@
   }
 }
 
+.achievements-section {
+  margin: 60px 0 40px 0;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin: 0 0 32px 0;
+  text-align: center;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.achievement-card {
+  text-align: center;
+  padding: 32px 24px;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.achievement-card:nth-child(1) { animation-delay: 0.1s; }
+.achievement-card:nth-child(2) { animation-delay: 0.2s; }
+.achievement-card:nth-child(3) { animation-delay: 0.3s; }
+.achievement-card:nth-child(4) { animation-delay: 0.4s; }
+
+.achievement-card:hover {
+  transform: translateY(-8px);
+}
+
+.achievement-card__icon {
+  font-size: 56px;
+  color: #60a5fa;
+  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.achievement-card:hover .achievement-card__icon {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #bae6fd 0%, #93c5fd 100%);
+}
+
+.achievement-card__title {
+  margin: 0 0 12px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+.achievement-card__description {
+  margin: 0 0 16px 0;
+  color: #475569;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.achievement-card__date {
+  display: inline-block;
+  padding: 6px 16px;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 1px solid #bae6fd;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0369a1;
+  letter-spacing: 0.5px;
+}
+
 @media (max-width: 768px) {
   .about-screen {
     padding: 80px 16px 32px;
@@ -198,6 +278,14 @@
   
   .about-screen__actions {
     flex-direction: column;
+  }
+
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 28px;
   }
 }
 

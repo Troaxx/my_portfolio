@@ -6,11 +6,6 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import CloseIcon from '@mui/icons-material/Close';
 import './ProjectsScreen.css';
 
-interface ProjectsScreenProps {
-  onNext: () => void;
-  onBack: () => void;
-}
-
 interface Project {
   title: string;
   description: string;
@@ -24,13 +19,13 @@ interface Project {
   isFeatured?: boolean;
 }
 
-export const ProjectsScreen: React.FC<ProjectsScreenProps> = ({ onNext, onBack }) => {
+export const ProjectsScreen: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const featuredProjects: Project[] = [
     {
       title: 'AURA - Wealth Management App',
-      description: 'Advise, Understand, Reflect, Act - Wealth that learns you, Advice that evolves with you. Built for PolyFinTechAPI100 2025 with Team Tweaking.',
+      description: 'Advise, Understand, Reflect, Act - Wealth that learns you, Advice that evolves with you. Built for PolyFinTechAPI100 2025 by Team Tweaking.',
       status: 'Completed',
       type: 'Hackathon',
       icon: <WebIcon />,
@@ -47,7 +42,7 @@ export const ProjectsScreen: React.FC<ProjectsScreenProps> = ({ onNext, onBack }
     },
     {
       title: 'KOSEN Global Camp A3',
-      description: 'Prototype developed for KOSEN Global Camp Group A3, focusing on collaborative international education solutions.',
+      description: 'Prototype developed for KOSEN Global Camp Group A3, focusing on solving over-tourism issues in Japan.',
       status: 'Completed',
       type: 'Hackathon',
       icon: <WebIcon />,
@@ -56,9 +51,9 @@ export const ProjectsScreen: React.FC<ProjectsScreenProps> = ({ onNext, onBack }
       githubUrl: 'https://github.com/Troaxx/KOSEN-Global-Camp-A3',
       isFeatured: true,
       learningTakeaways: [
-        'Collaborated with international team members across different time zones',
-        'Developed cross-cultural communication skills in technical projects',
-        'Built scalable prototypes under tight deadlines',
+        'Collaborated in-person with international team members across different countries',
+        'Developed a more hollistic view of Japan and Thailand Culture',
+        'Built a scalable and feasible prototype within 3 days',
         'Enhanced TypeScript and React proficiency'
       ]
     },
@@ -103,9 +98,9 @@ export const ProjectsScreen: React.FC<ProjectsScreenProps> = ({ onNext, onBack }
               <div className="featured-project__content-compact">
                 <div className="project-card__header">
                   <div className="project-card__icon">{project.icon}</div>
+                  <h3 className="project-card__title">{project.title}</h3>
                 </div>
                 
-                <h3 className="project-card__title">{project.title}</h3>
                 <p className="project-card__description-compact">{project.description}</p>
                 
                 <div className="project-card__tech">
@@ -215,9 +210,9 @@ export const ProjectsScreen: React.FC<ProjectsScreenProps> = ({ onNext, onBack }
             <Card key={index} hover className="project-card">
               <div className="project-card__header">
                 <div className="project-card__icon">{project.icon}</div>
+                <h3 className="project-card__title">{project.title}</h3>
               </div>
               
-              <h3 className="project-card__title">{project.title}</h3>
               <p className="project-card__description">{project.description}</p>
               
               <div className="project-card__tech">
@@ -262,14 +257,7 @@ export const ProjectsScreen: React.FC<ProjectsScreenProps> = ({ onNext, onBack }
           </Button>
         </div>
 
-        <div className="projects-screen__actions">
-          <Button onClick={onBack} variant="secondary">
-            Previous
-          </Button>
-          <Button onClick={onNext} variant="quest">
-            Continue
-          </Button>
-        </div>
+
       </div>
     </div>
   );

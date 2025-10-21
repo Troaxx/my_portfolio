@@ -108,19 +108,27 @@
 .project-card:nth-child(3) { animation-delay: 0.4s; }
 .project-card:nth-child(4) { animation-delay: 0.5s; }
 
-.project-card__icon {
-  font-size: 48px;
-  color: #60a5fa;
+.project-card__header {
   display: flex;
   align-items: center;
+  gap: 12px;
   margin-bottom: 16px;
 }
 
+.project-card__icon {
+  font-size: 40px;
+  color: #60a5fa;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 .project-card__title {
-  margin: 0 0 12px 0;
+  margin: 0;
   color: #1e3a8a;
   font-size: 24px;
   font-weight: 700;
+  line-height: 1.2;
 }
 
 .project-card__description {

@@ -5,11 +5,7 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import './HomeScreen.css';
 
-interface HomeScreenProps {
-  onStart: () => void;
-}
-
-export const HomeScreen: React.FC<HomeScreenProps> = ({ onStart }) => {
+export const HomeScreen: React.FC = () => {
   const [showText, setShowText] = useState(false);
 
   useEffect(() => {
@@ -48,7 +44,12 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onStart }) => {
           </div>
         </Card>
 
-        <Button onClick={onStart} variant="quest" size="large">
+        <Button onClick={() => {
+          const element = document.getElementById('about');
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }} variant="quest" size="large">
           Explore My Work
         </Button>
       </div>

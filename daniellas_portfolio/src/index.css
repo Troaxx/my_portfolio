@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -15,6 +16,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #ffffff;
   color: #1e293b;
+  overflow-x: hidden;
 }
 
 code {
