@@ -16,9 +16,12 @@ export const TechMarquee: React.FC = () => {
     { name: 'Node.js', path: '/project-images/nodejs.png' },
     { name: 'Python', path: '/project-images/python.png' },
     { name: 'Java', path: '/project-images/java.png' },
+    { name: 'Dart', path: '/project-images/dart.png' },
     { name: 'SQL', path: '/project-images/mysql.png' },
     { name: 'Git', path: '/project-images/github.png' },
     { name: 'Figma', path: '/project-images/figma.png' },
+    { name: 'Flutter', path: '/project-images/flutter.png' },
+    { name: 'Firebase', path: '/project-images/firebase.png' },
     { name: 'Vite', path: '/project-images/vite.png' },
   ];
 
