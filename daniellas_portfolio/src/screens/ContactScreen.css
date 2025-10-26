@@ -1,7 +1,23 @@
 .contact-screen {
   min-height: 100vh;
   padding: 120px 20px 80px;
-  background: #ffffff;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .contact-screen__content {
@@ -12,15 +28,16 @@
 .contact-screen__title {
   font-size: 48px;
   margin: 0 0 8px 0;
-  color: #1e3a8a;
+  color: #f8fafc;
   font-weight: 800;
   text-align: center;
   animation: fadeInUp 0.6s ease-out;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .contact-screen__subtitle {
   font-size: 18px;
-  color: #60a5fa;
+  color: #94a3b8;
   text-align: center;
   margin: 0 0 40px 0;
   font-weight: 600;
@@ -40,7 +57,7 @@
 
 .section-title {
   margin: 0 0 24px 0;
-  color: #1e3a8a;
+  color: #f8fafc;
   font-size: 28px;
   font-weight: 700;
   display: flex;
@@ -50,7 +67,7 @@
 
 .section-icon {
   font-size: 32px;
-  color: #60a5fa;
+  color: #3b82f6;
   display: flex;
   align-items: center;
 }
@@ -69,26 +86,27 @@
 
 .form-group label {
   font-weight: 600;
-  color: #1e3a8a;
+  color: #f8fafc;
   font-size: 14px;
 }
 
 .form-group input,
 .form-group textarea {
   padding: 12px 16px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid rgba(59, 130, 246, 0.3);
   border-radius: 8px;
   font-family: inherit;
   font-size: 16px;
   transition: all 0.2s ease;
-  background: white;
+  background: rgba(30, 41, 59, 0.5);
+  color: #f8fafc;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #93c5fd;
-  box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.15);
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
 .form-group textarea {
@@ -111,19 +129,20 @@
   align-items: center;
   gap: 12px;
   padding: 16px;
-  background: #f0f9ff;
-  border: 1px solid #e0f2fe;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
   border-radius: 12px;
   text-decoration: none;
-  color: #0369a1;
+  color: #60a5fa;
   font-weight: 600;
   transition: all 0.2s ease;
 }
 
 .social-link:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  border-color: #bfdbfe;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.2);
 }
 
 .social-link__icon {

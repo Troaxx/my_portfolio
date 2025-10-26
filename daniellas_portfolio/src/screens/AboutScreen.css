@@ -1,7 +1,23 @@
 .about-screen {
   min-height: 100vh;
   padding: 120px 20px 80px;
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .about-screen__content {
@@ -12,22 +28,25 @@
 .about-screen__title {
   font-size: 48px;
   margin: 0 0 8px 0;
-  color: #1e3a8a;
+  color: #f8fafc;
   font-weight: 800;
   text-align: center;
   animation: fadeInUp 0.6s ease-out;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .about-story {
   margin-bottom: 48px;
   animation: fadeInUp 0.6s ease-out 0.1s backwards;
-  background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+  background: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid #475569;
 }
 
 .about-story__title {
   font-size: 32px;
   font-weight: 700;
-  color: #1e3a8a;
+  color: #f8fafc;
   margin: 0 0 24px 0;
 }
 
@@ -37,18 +56,18 @@
 
 .about-story__content p {
   margin: 0 0 20px 0;
-  color: #475569;
+  color: #cbd5e1;
   font-size: 16px;
 }
 
 .about-story__content p:last-child {
   margin-bottom: 0;
   font-style: italic;
-  color: #64748b;
-  background: #f8fafc;
+  color: #94a3b8;
+  background: rgba(51, 65, 85, 0.5);
   padding: 16px;
   border-radius: 8px;
-  border-left: 3px solid #60a5fa;
+  border-left: 3px solid #3b82f6;
 }
 
 .about-facts {
@@ -113,7 +132,7 @@
 .stats-card__icon,
 .info-card__icon {
   font-size: 32px;
-  color: #60a5fa;
+  color: #3b82f6;
   flex-shrink: 0;
 }
 
@@ -121,7 +140,7 @@
 .stats-card h3,
 .info-card h3 {
   margin: 0;
-  color: #1e3a8a;
+  color: #f8fafc;
   font-size: 22px;
   font-weight: 700;
 }
@@ -129,14 +148,32 @@
 .about-card p,
 .info-card p {
   margin: 0;
-  color: #334155;
+  color: #cbd5e1;
   line-height: 1.6;
 }
 
-.stats-list {
+.stat-item {
   display: flex;
-  flex-direction: column;
-  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.stat-item:last-child {
+  border-bottom: none;
+}
+
+.stat-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.stat-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #60a5fa;
 }
 
 .abilities-list {
@@ -190,7 +227,7 @@
 .section-title {
   font-size: 32px;
   font-weight: 700;
-  color: #1e3a8a;
+  color: #f8fafc;
   margin: 0 0 32px 0;
   text-align: center;
 }
@@ -220,33 +257,33 @@
 
 .achievement-card__icon {
   font-size: 56px;
-  color: #60a5fa;
+  color: #3b82f6;
   margin-bottom: 16px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+  background: rgba(59, 130, 246, 0.1);
   border-radius: 50%;
   transition: all 0.3s ease;
 }
 
 .achievement-card:hover .achievement-card__icon {
   transform: scale(1.1);
-  background: linear-gradient(135deg, #bae6fd 0%, #93c5fd 100%);
+  background: rgba(59, 130, 246, 0.2);
 }
 
 .achievement-card__title {
   margin: 0 0 12px 0;
   font-size: 20px;
   font-weight: 700;
-  color: #1e3a8a;
+  color: #f8fafc;
 }
 
 .achievement-card__description {
   margin: 0 0 16px 0;
-  color: #475569;
+  color: #cbd5e1;
   line-height: 1.6;
   font-size: 14px;
 }
@@ -254,12 +291,12 @@
 .achievement-card__date {
   display: inline-block;
   padding: 6px 16px;
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-  border: 1px solid #bae6fd;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
   border-radius: 20px;
   font-size: 12px;
   font-weight: 700;
-  color: #0369a1;
+  color: #60a5fa;
   letter-spacing: 0.5px;
 }
 

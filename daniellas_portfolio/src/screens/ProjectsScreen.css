@@ -1,7 +1,23 @@
 .projects-screen {
   min-height: 100vh;
   padding: 120px 20px 80px;
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-screen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .projects-screen__content {
@@ -12,15 +28,16 @@
 .projects-screen__title {
   font-size: 48px;
   margin: 0 0 8px 0;
-  color: #1e3a8a;
+  color: #f8fafc;
   font-weight: 800;
   text-align: center;
   animation: fadeInUp 0.6s ease-out;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .projects-screen__subtitle {
   font-size: 18px;
-  color: #60a5fa;
+  color: #94a3b8;
   text-align: center;
   margin: 0 0 40px 0;
   font-weight: 600;
@@ -125,7 +142,7 @@
 
 .project-card__title {
   margin: 0;
-  color: #1e3a8a;
+  color: #f8fafc;
   font-size: 24px;
   font-weight: 700;
   line-height: 1.2;
@@ -133,7 +150,7 @@
 
 .project-card__description {
   margin: 0 0 16px 0;
-  color: #334155;
+  color: #cbd5e1;
   line-height: 1.6;
   flex-grow: 1;
 }
@@ -147,27 +164,27 @@
 
 .tech-tag {
   padding: 6px 12px;
-  background: #f0f9ff;
-  border: 1px solid #e0f2fe;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
   border-radius: 6px;
   font-size: 12px;
   font-weight: 600;
-  color: #0369a1;
+  color: #60a5fa;
 }
 
 .project-learnings {
   margin: 24px 0;
   padding: 20px;
-  background: #f8fafc;
+  background: rgba(30, 41, 59, 0.5);
   border-radius: 8px;
-  border-left: 4px solid #60a5fa;
+  border-left: 4px solid #3b82f6;
 }
 
 .project-learnings__title {
   margin: 0 0 12px 0;
   font-size: 16px;
   font-weight: 700;
-  color: #1e3a8a;
+  color: #f8fafc;
 }
 
 .project-learnings__list {
@@ -180,7 +197,7 @@
   margin-bottom: 8px;
   padding-left: 24px;
   position: relative;
-  color: #475569;
+  color: #cbd5e1;
   line-height: 1.6;
 }
 
@@ -188,7 +205,7 @@
   content: '→';
   position: absolute;
   left: 0;
-  color: #60a5fa;
+  color: #3b82f6;
   font-weight: bold;
 }
 
@@ -204,7 +221,7 @@
   justify-content: flex-end;
   align-items: center;
   padding-top: 16px;
-  border-top: 2px solid #e0f2fe;
+  border-top: 2px solid rgba(59, 130, 246, 0.2);
   margin-top: auto;
 }
 

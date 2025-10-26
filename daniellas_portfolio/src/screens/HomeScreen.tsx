@@ -3,55 +3,148 @@ import { Button, Card } from '../components';
 import StarIcon from '@mui/icons-material/Star';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import DownloadIcon from '@mui/icons-material/Download';
 import './HomeScreen.css';
 
 export const HomeScreen: React.FC = () => {
   const [showText, setShowText] = useState(false);
+  const [terminalContent, setTerminalContent] = useState<string>('');
 
   useEffect(() => {
     setTimeout(() => setShowText(true), 300);
+    
+    let charIndex = 0;
+    const fullText = `$ whoami
+> daniella
+$ cat README.md
+> # Daniella's Portfolio
+> Full-stack Developer specialised in React & TypeScript
+> Currently studying at <span class="temasek-red">Temasek</span> <span class="temasek-white">Polytechnic</span>
+$ npm run build
+> Built successfully in 2.3s
+> Bundle size: 245KB
+$ echo "Ready to work together?";
+> Ready to work together?`
+    
+    const typeNextChar = () => {
+      if (charIndex < fullText.length) {
+        setTerminalContent(fullText.substring(0, charIndex + 1));
+        charIndex++;
+        
+        let delay = 40; // More consistent base delay
+        const currentChar = fullText[charIndex - 1];
+        
+        if (currentChar === ' ') {
+          delay = 20;
+        } else if (currentChar === '\n') {
+          delay = 150;
+        } else if (currentChar === '<') {
+          // Skip HTML tags quickly
+          const tagEnd = fullText.indexOf('>', charIndex);
+          if (tagEnd !== -1) {
+            charIndex = tagEnd;
+            setTerminalContent(fullText.substring(0, charIndex + 1));
+            charIndex++;
+          }
+          delay = 10;
+        } else if (currentChar === '>') {
+          delay = 10;
+        }
+        
+        setTimeout(typeNextChar, delay);
+      }
+    };
+    
+    // Start typing after a short delay
+    setTimeout(typeNextChar, 500);
   }, []);
 
   return (
     <div className="home-screen">
-      <div className={`home-screen__content ${showText ? 'home-screen__content--visible' : ''}`}>
-        <div className="home-screen__avatar">
-          <div className="avatar-circle">D</div>
-        </div>
-        
-        <h1 className="home-screen__title">Hi, I'm Daniella</h1>
-        <p className="home-screen__intro">Student Developer · Gundam Builder · Problem Solver</p>
-        
-        <Card className="home-screen__card">
-          <p className="home-screen__text">
-            I'm a student at Temasek Polytechnic learning to build things with 
-            React and TypeScript. When I'm not coding, you'll find me building gundams 
-            and exploring new technologies.
-          </p>
-          <div className="home-screen__features">
-            <div className="feature">
-              <StarIcon className="feature__icon" />
-              <span className="feature__text">My Skills</span>
+      <div className="home-screen__layout">
+        <div className="home-screen__terminal">
+          <div className="computer-screen">
+            <div className="screen-header">
+              <div className="screen-controls">
+                <div className="control-btn close"></div>
+                <div className="control-btn minimize"></div>
+                <div className="control-btn maximize"></div>
+              </div>
+              <div className="screen-title">Terminal - Portfolio</div>
             </div>
-            <div className="feature">
-              <EmojiEventsIcon className="feature__icon" />
-              <span className="feature__text">Projects</span>
-            </div>
-            <div className="feature">
-              <TrendingUpIcon className="feature__icon" />
-              <span className="feature__text">Experience</span>
+            
+            <div className="terminal-content">
+              <div className="terminal-lines">
+                <div className="terminal-text">
+                  {terminalContent.split('\n').map((line, index) => (
+                    <div key={index} className={`terminal-line ${line.startsWith('$') ? 'command-line' : 'output-line'}`}>
+                      <span dangerouslySetInnerHTML={{ __html: line }} />
+                    </div>
+                  ))}
+                  <span className="cursor">_</span>
+                </div>
+              </div>
             </div>
           </div>
-        </Card>
+        </div>
 
-        <Button onClick={() => {
-          const element = document.getElementById('about');
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }} variant="quest" size="large">
-          Explore My Work
-        </Button>
+        <div className={`home-screen__content ${showText ? 'home-screen__content--visible' : ''}`}>
+          <div className="home-screen__avatar">
+            <div className="avatar-circle">D</div>
+          </div>
+          
+          <h1 className="home-screen__title">Hi, I'm Daniella</h1>
+          <p className="home-screen__intro">Student Developer · Gundam Builder · Problem Solver</p>
+          
+          <Card className="home-screen__card">
+            <p className="home-screen__text">
+              I'm a student at Temasek Polytechnic learning to build things with 
+              React and TypeScript. When I'm not coding, you'll find me building gundams 
+              and exploring new technologies.
+            </p>
+            <div className="home-screen__features">
+              <div className="feature" style={{ '--icon-index': '0' } as React.CSSProperties}>
+                <StarIcon className="feature__icon" />
+                <span className="feature__text">My Skills</span>
+              </div>
+              <div className="feature" style={{ '--icon-index': '1' } as React.CSSProperties}>
+                <EmojiEventsIcon className="feature__icon" />
+                <span className="feature__text">Projects</span>
+              </div>
+              <div className="feature" style={{ '--icon-index': '2' } as React.CSSProperties}>
+                <TrendingUpIcon className="feature__icon" />
+                <span className="feature__text">Experience</span>
+              </div>
+            </div>
+          </Card>
+
+          <div className="home-screen__actions">
+            <Button onClick={() => {
+              const element = document.getElementById('about');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }} variant="quest" size="large">
+              Explore My Work
+            </Button>
+            
+            <Button 
+              onClick={() => {
+                // Create a temporary link to download resume
+                const link = document.createElement('a');
+                link.href = '/resume.pdf'; // You'll need to add your resume.pdf to the public folder
+                link.download = 'Daniella_Resume.pdf';
+                link.click();
+              }}
+              variant="secondary" 
+              size="large"
+              className="resume-download-btn"
+            >
+              <DownloadIcon style={{ fontSize: '20px', marginRight: '8px' }} />
+              Download Resume
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );

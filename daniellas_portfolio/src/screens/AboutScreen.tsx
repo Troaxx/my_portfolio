@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, ProgressBar } from '../components';
+import { Card } from '../components';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import TrackChangesIcon from '@mui/icons-material/TrackChanges';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
@@ -76,12 +76,10 @@ export const AboutScreen: React.FC = () => {
             </div>
             <div className="stats-list">
               {stats.map((stat, index) => (
-                <ProgressBar
-                  key={index}
-                  label={stat.label}
-                  progress={stat.value}
-                  animated
-                />
+                <div key={index} className="stat-item">
+                  <div className="stat-label">{stat.label}</div>
+                  <div className="stat-value">{stat.value}%</div>
+                </div>
               ))}
             </div>
           </Card>

@@ -1,12 +1,13 @@
 .tech-marquee {
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  background: rgba(30, 41, 59, 0.5);
   padding: 40px 0;
   border-radius: 16px;
-  border: 2px solid #e2e8f0;
+  border: 2px solid rgba(59, 130, 246, 0.3);
   margin: 40px 0;
   position: relative;
+  backdrop-filter: blur(10px);
 }
 
 .tech-marquee::before,
@@ -22,12 +23,12 @@
 
 .tech-marquee::before {
   left: 0;
-  background: linear-gradient(90deg, #f8fafc 0%, transparent 100%);
+  background: linear-gradient(90deg, rgba(30, 41, 59, 0.5) 0%, transparent 100%);
 }
 
 .tech-marquee::after {
   right: 0;
-  background: linear-gradient(270deg, #f8fafc 0%, transparent 100%);
+  background: linear-gradient(270deg, rgba(30, 41, 59, 0.5) 0%, transparent 100%);
 }
 
 .tech-marquee__track {
@@ -37,9 +38,6 @@
   will-change: transform;
 }
 
-.tech-marquee__track:hover {
-  animation-play-state: paused;
-}
 
 .tech-marquee__item {
   display: flex;
@@ -69,7 +67,7 @@
 .tech-marquee__item span {
   font-size: 14px;
   font-weight: 600;
-  color: #1e3a8a;
+  color: #f8fafc;
   white-space: nowrap;
 }
 
