@@ -9,11 +9,11 @@ import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import './AboutScreen.css';
 
 export const AboutScreen: React.FC = () => {
-  const stats = [
-    { label: 'Problem Solving', value: 95 },
-    { label: 'Team Collaboration', value: 90 },
-    { label: 'Creativity', value: 88 },
-    { label: 'Adaptability', value: 92 },
+  const journeySteps = [
+    { label: 'Started coding', value: '2022 - First "Hello World"' },
+    { label: 'First project', value: '2023 - Built my first React app' },
+    { label: 'Current focus', value: '2024 - Mastering TypeScript and modern web development' },
+    { label: 'Goal', value: 'Building production-ready applications' },
   ];
 
   const achievements = [
@@ -72,13 +72,13 @@ export const AboutScreen: React.FC = () => {
           <Card className="stats-card">
             <div className="stats-card__header">
               <BarChartIcon className="stats-card__icon" />
-              <h3>Core Strengths</h3>
+              <h3>My Journey</h3>
             </div>
             <div className="stats-list">
-              {stats.map((stat, index) => (
+              {journeySteps.map((step, index) => (
                 <div key={index} className="stat-item">
-                  <div className="stat-label">{stat.label}</div>
-                  <div className="stat-value">{stat.value}%</div>
+                  <div className="stat-label">{step.label}</div>
+                  <div className="stat-value">{step.value}</div>
                 </div>
               ))}
             </div>
@@ -89,19 +89,24 @@ export const AboutScreen: React.FC = () => {
               <TrackChangesIcon className="info-card__icon" />
               <h3>Current Focus</h3>
             </div>
-            <p>Building innovative solutions and mastering new technologies</p>
+            <div className="current-focus-content">
+              <p>Building innovative solutions and mastering new technologies</p>
+              <p>Currently developing this portfolio website using React & TypeScript</p>
+              <p>Exploring Next.js for server-side rendering and performance optimization</p>
+              <p>Learning advanced React patterns and testing frameworks</p>
+            </div>
           </Card>
 
           <Card className="info-card">
             <div className="info-card__header">
               <AutoAwesomeIcon className="info-card__icon" />
-              <h3>Core Competencies</h3>
+              <h3>Development Stack</h3>
             </div>
             <ul className="abilities-list">
-              <li>Full-Stack Development</li>
-              <li>UI/UX Design</li>
-              <li>Problem Solving</li>
-              <li>Quick Learning</li>
+              <li>Frontend: React/React Native, TypeScript, Flutter</li>
+              <li>Backend: Node.js, Python, MySQL, MongoDB</li>
+              <li>Tools: Git, Figma</li>
+              <li>Learning: Next.js, Testing frameworks</li>
             </ul>
           </Card>
         </div>

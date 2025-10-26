@@ -17,6 +17,7 @@ interface Project {
   learningTakeaways?: string[];
   githubUrl?: string;
   isFeatured?: boolean;
+  story?: string;
 }
 
 export const ProjectsScreen: React.FC = () => {
@@ -24,37 +25,40 @@ export const ProjectsScreen: React.FC = () => {
 
   const featuredProjects: Project[] = [
     {
-      title: 'AURA - Wealth Management App',
-      description: 'Advise, Understand, Reflect, Act - Wealth that learns you, Advice that evolves with you. Built for PolyFinTechAPI100 2025 by Team Tweaking.',
+      title: 'AURA - Wealth Management Platform',
+      description: 'Built a comprehensive wealth management platform serving HNWIs. Created by Team Tweaking during the PolyFinTechAPI100 2025 Hackathon.',
       status: 'Completed',
       type: 'Hackathon',
       icon: <WebIcon />,
-      tech: ['TypeScript', 'React', 'FinTech API'],
-      image: '/project-images/aura.jpg',
+      tech: ['TypeScript', 'React Native', 'Expo', 'FinTech API', 'AI Integration'],
+      image: '/aura-header.png',
       githubUrl: 'https://github.com/Troaxx/aura',
       isFeatured: true,
+      story: 'AURA is a standalone wealth management application designed for High Net Worth Individuals (HNWIs). Built for the PolyFinTechAPI100 2025 Hackathon in the Smart Wealth category sponsored by <a href="https://www.ubs.com/" target="_blank">UBS</a>, the platform addresses the challenge of fragmented financial information across multiple banks and institutions. The solution leverages the Personal Online Datastore (POD) architecture to consolidate anonymized and aggregated financial data, presenting users with a holistic view of their portfolio through contextualized statements. Key features include AI-powered financial insights, legacy planning tools, life mapping for goal-based generational planning, jargon translation for complex financial terminology, and a private vault for secure asset overview. The AI chatbot companion interprets these contextualized statements to provide objective insights and simplified analytics tailored to the needs of HNWIs with complex financial structures.',
       learningTakeaways: [
-        'Integrated financial APIs to provide personalized wealth management advice',
-        'Learned to build adaptive systems that evolve with user behavior',
-        'Gained experience in hackathon-style rapid prototyping and teamwork',
-        'Explored FinTech domain and financial data visualization'
+        'Built a comprehensive wealth management platform serving HNWIs',
+        'Proposed Personal Online Datastore (POD) integration for multi-bank data consolidation',
+        'Developed AI-powered chatbot companion for financial insights',
+        'Created features including Legacy Planner, Life Map, and Private Vault',
+        'Collaborated with Team Tweaking under PolyFinTechAPI100 2025 hackathon'
       ]
     },
     {
-      title: 'KOSEN Global Camp A3',
-      description: 'Prototype developed for KOSEN Global Camp Group A3, focusing on solving over-tourism issues in Japan.',
+      title: 'Hello Japan - KOSEN Global Camp',
+      description: 'Aobile-first web application addressing Japan overtourism through smart technology solutions. ',
       status: 'Completed',
       type: 'Hackathon',
       icon: <WebIcon />,
-      tech: ['TypeScript', 'React'],
-      image: '/project-images/kosen.jpg',
+      tech: ['TypeScript', 'React', 'Netlify', 'Mobile-First'],
+      image: '/hello-japan.png',
       githubUrl: 'https://github.com/Troaxx/KOSEN-Global-Camp-A3',
       isFeatured: true,
       learningTakeaways: [
-        'Collaborated in-person with international team members across different countries',
-        'Developed a more hollistic view of Japan and Thailand Culture',
-        'Built a scalable and feasible prototype within 3 days',
-        'Enhanced TypeScript and React proficiency'
+        'Collaborated internationally with team members from Japan (Kyushu KOSENs), Thailand, and Singapore',
+        'Built features including dynamic pricing based on crowd levels to distribute tourist flow',
+        'Developed Japanese etiquette guide and voice command system for tourist communication',
+        'Created mobile-optimized web application deployed on Netlify within 3 days',
+        'Enhanced cross-cultural collaboration and React/TypeScript skills'
       ]
     },
   ];
@@ -97,7 +101,6 @@ export const ProjectsScreen: React.FC = () => {
               
               <div className="featured-project__content-compact">
                 <div className="project-card__header">
-                  <div className="project-card__icon">{project.icon}</div>
                   <h3 className="project-card__title">{project.title}</h3>
                 </div>
                 
@@ -148,8 +151,6 @@ export const ProjectsScreen: React.FC = () => {
               )}
 
               <div className="project-modal__body">
-                <div className="project-card__icon">{selectedProject.icon}</div>
-
                 <h2 className="project-modal__title">{selectedProject.title}</h2>
                 <p className="project-modal__description">{selectedProject.description}</p>
 
@@ -168,10 +169,12 @@ export const ProjectsScreen: React.FC = () => {
                   </span>
                 </div>
 
-                <div className="project-modal__blog">
-                  <h3>Project Story</h3>
-                  <p>Add your detailed blog post content here about the project journey, challenges, and outcomes...</p>
-                </div>
+                {selectedProject.story && (
+                  <div className="project-modal__blog">
+                    <h3>Project Story</h3>
+                    <p dangerouslySetInnerHTML={{ __html: selectedProject.story }}></p>
+                  </div>
+                )}
 
                 {selectedProject.learningTakeaways && selectedProject.learningTakeaways.length > 0 && (
                   <div className="project-learnings">

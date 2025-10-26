@@ -90,7 +90,9 @@ $ echo "Ready to work together?";
 
         <div className={`home-screen__content ${showText ? 'home-screen__content--visible' : ''}`}>
           <div className="home-screen__avatar">
-            <div className="avatar-circle">D</div>
+            <div className="avatar-circle">
+              <img src="/my-pic.jpg" alt="Daniella" className="avatar-image" />
+            </div>
           </div>
           
           <h1 className="home-screen__title">Hi, I'm Daniella</h1>
