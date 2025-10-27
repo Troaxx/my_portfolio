@@ -4,7 +4,13 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import WebIcon from '@mui/icons-material/Web';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import CloseIcon from '@mui/icons-material/Close';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import './ProjectsScreen.css';
+
+interface ProjectFeature {
+  description: string | string[];
+  image?: string;
+}
 
 interface Project {
   title: string;
@@ -16,8 +22,10 @@ interface Project {
   image?: string;
   learningTakeaways?: string[];
   githubUrl?: string;
+  liveDemoUrl?: string;
   isFeatured?: boolean;
   story?: string;
+  features?: ProjectFeature[];
 }
 
 export const ProjectsScreen: React.FC = () => {
@@ -30,11 +38,27 @@ export const ProjectsScreen: React.FC = () => {
       status: 'Completed',
       type: 'Hackathon',
       icon: <WebIcon />,
-      tech: ['TypeScript', 'React Native', 'Expo', 'FinTech API', 'AI Integration'],
+      tech: ['TypeScript', 'React Native', 'Expo', 'AI Integration'],
       image: '/aura-header.png',
       githubUrl: 'https://github.com/Troaxx/aura',
       isFeatured: true,
-      story: 'AURA is a standalone wealth management application designed for High Net Worth Individuals (HNWIs). Built for the PolyFinTechAPI100 2025 Hackathon in the Smart Wealth category sponsored by <a href="https://www.ubs.com/" target="_blank">UBS</a>, the platform addresses the challenge of fragmented financial information across multiple banks and institutions. The solution leverages the Personal Online Datastore (POD) architecture to consolidate anonymized and aggregated financial data, presenting users with a holistic view of their portfolio through contextualized statements. Key features include AI-powered financial insights, legacy planning tools, life mapping for goal-based generational planning, jargon translation for complex financial terminology, and a private vault for secure asset overview. The AI chatbot companion interprets these contextualized statements to provide objective insights and simplified analytics tailored to the needs of HNWIs with complex financial structures.',
+      story: `AURA is a standalone wealth management application for High Net Worth Individuals (HNWIs), developed for the PolyFinTechAPI100 2025 Hackathon (Smart Wealth category, sponsored by UBS).
+
+It solves the problem of fragmented financial information across multiple institutions by using the Personal Online Datastore (POD) architecture to consolidate anonymized, aggregated financial data. This provides a holistic portfolio view via contextualized statements.`
+,
+      features: [
+        {
+          description: [
+            '<strong>Financial Products Overview:</strong> An unbiased and holistic view of their financial solutions.',
+            '<strong>Legacy Planner:</strong> Structure long-term estate and succession planning.',
+            '<strong>Jargon Translator:</strong> Breaks down complex financial terminology into simple, accessible explanations.',
+            '<strong>Life Map:</strong> Goal-based generational planning.',
+            '<strong>Private Vault:</strong> A secure and encrypted overview of all assets held across multiple institutions.',
+            '<strong>AI Chatbot Companion:</strong> An always-available assistant that interprets contextualised statements and UBS-specific insights.'
+          ],
+          image: '/aura-features.png'
+        }
+      ],
       learningTakeaways: [
         'Built a comprehensive wealth management platform serving HNWIs',
         'Proposed Personal Online Datastore (POD) integration for multi-bank data consolidation',
@@ -45,14 +69,22 @@ export const ProjectsScreen: React.FC = () => {
     },
     {
       title: 'Hello Japan - KOSEN Global Camp',
-      description: 'Aobile-first web application addressing Japan overtourism through smart technology solutions. ',
+      description: 'A mobile-first web application addressing Japan overtourism through smart technology solutions. ',
       status: 'Completed',
       type: 'Hackathon',
       icon: <WebIcon />,
       tech: ['TypeScript', 'React', 'Netlify', 'Mobile-First'],
       image: '/hello-japan.png',
       githubUrl: 'https://github.com/Troaxx/KOSEN-Global-Camp-A3',
+      liveDemoUrl: 'https://kosena3.netlify.app/',
       isFeatured: true,
+      story: `Hello Japan is a mobile-first web application developed for the KOSEN Global Camp to address Japan's overtourism challenges through smart technology solutions.
+
+This project was created by Group A3 during the KOSEN Global Camp, where students from Kyushu Region KOSENs (Japan), Thailand (PCHSS Princess Chulabhorn Science High School Loei), and Singapore (Temasek Polytechnic) collaborated to solve overtourism and smart disaster prevention challenges in Japan.
+
+<br/><br/>Key features include:<br/><br/>• Dynamic pricing based on crowd levels to distribute tourist flow and reduce overcrowding at popular destinations<br/><br/>• Japanese rules and etiquette guide covering cultural customs and tourist guidelines<br/><br/>• Voice command system that displays common phrases in English, Romaji (romanized pronunciation), and Japanese script to help tourists communicate basic needs`
+
+,
       learningTakeaways: [
         'Collaborated internationally with team members from Japan (Kyushu KOSENs), Thailand, and Singapore',
         'Built features including dynamic pricing based on crowd levels to distribute tourist flow',
@@ -89,6 +121,16 @@ export const ProjectsScreen: React.FC = () => {
       <div className="projects-screen__content">
         <h1 className="projects-screen__title">Featured Projects</h1>
         <p className="projects-screen__subtitle">Things I've built</p>
+        <div className="github-section">
+          <Button 
+            onClick={() => window.open('https://github.com/Troaxx', '_blank')}
+            variant="secondary"
+            size="large"
+          >
+            <GitHubIcon style={{ marginRight: '8px', verticalAlign: 'middle' }} />
+            View My GitHub
+          </Button>
+        </div>
 
         <div className="featured-projects-grid">
           {featuredProjects.map((project, index) => (
@@ -176,14 +218,42 @@ export const ProjectsScreen: React.FC = () => {
                   </div>
                 )}
 
+                {selectedProject.features && selectedProject.features.length > 0 && (
+                  <div className="project-features">
+                    <h4 className="project-features__title">Key Features</h4>
+                    <div className="project-features__container">
+                      {selectedProject.features.map((feature, i) => (
+                        <div key={i} className="project-feature">
+                          {Array.isArray(feature.description) ? (
+                            <ul className="project-feature__list">
+                              {feature.description.map((item, j) => (
+                                <li key={j} dangerouslySetInnerHTML={{ __html: item }}></li>
+                              ))}
+                            </ul>
+                          ) : (
+                            <p className="project-feature__description" dangerouslySetInnerHTML={{ __html: feature.description as string }}></p>
+                          )}
+                          {feature.image && (
+                            <div className="project-feature__image">
+                              <img src={feature.image}/>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {selectedProject.learningTakeaways && selectedProject.learningTakeaways.length > 0 && (
                   <div className="project-learnings">
-                    <h4 className="project-learnings__title">Key Learnings</h4>
-                    <ul className="project-learnings__list">
-                      {selectedProject.learningTakeaways.map((takeaway, i) => (
-                        <li key={i}>{takeaway}</li>
-                      ))}
-                    </ul>
+                    <h4 className="project-learnings__title">Key Takeaways</h4>
+                    <div className="project-learnings__container">
+                      <ul className="project-learnings__list">
+                        {selectedProject.learningTakeaways.map((takeaway, i) => (
+                          <li key={i}>{takeaway}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 )}
 
@@ -194,8 +264,18 @@ export const ProjectsScreen: React.FC = () => {
                       variant="secondary"
                       size="medium"
                     >
-                      <GitHubIcon style={{ fontSize: '20px', marginRight: '8px' }} />
+                      <GitHubIcon style={{ fontSize: '20px', marginRight: '8px', verticalAlign: 'middle' }} />
                       View Code
+                    </Button>
+                  )}
+                  {selectedProject.liveDemoUrl && (
+                    <Button 
+                      onClick={() => window.open(selectedProject.liveDemoUrl, '_blank')}
+                      variant="secondary"
+                      size="medium"
+                    >
+                      <OpenInNewIcon style={{ fontSize: '20px', marginRight: '8px', verticalAlign: 'middle' }} />
+                      View Live Demo
                     </Button>
                   )}
                 </div>
@@ -240,8 +320,18 @@ export const ProjectsScreen: React.FC = () => {
                     variant="secondary"
                     size="small"
                   >
-                    <GitHubIcon style={{ fontSize: '18px', marginRight: '6px' }} />
+                    <GitHubIcon style={{ fontSize: '18px', marginRight: '6px', verticalAlign: 'middle' }} />
                     View Code
+                  </Button>
+                )}
+                {project.liveDemoUrl && (
+                  <Button 
+                    onClick={() => window.open(project.liveDemoUrl, '_blank')}
+                    variant="secondary"
+                    size="small"
+                  >
+                    View Live Demo
+                    <OpenInNewIcon style={{ fontSize: '18px', marginLeft: '6px', verticalAlign: 'middle' }} />
                   </Button>
                 )}
               </div>
@@ -249,16 +339,7 @@ export const ProjectsScreen: React.FC = () => {
           ))}
         </div>
 
-        <div className="github-section">
-          <Button 
-            onClick={() => window.open('https://github.com/Troaxx', '_blank')}
-            variant="secondary"
-            size="large"
-          >
-            <GitHubIcon style={{ marginRight: '8px' }} />
-            View My GitHub
-          </Button>
-        </div>
+
 
 
       </div>
