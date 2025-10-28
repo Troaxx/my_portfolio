@@ -90,8 +90,8 @@ $ echo "Ready to work together?";
             </div>
           </div>
           
-          <h1 className="home-screen__title">Hi, I'm Daniella</h1>
-          <p className="home-screen__intro">Student Developer · Gundam Builder · Problem Solver</p>
+          <h1 className="home-screen__title">Hi, I'm Daniella!</h1>
+          <p className="home-screen__intro">Student Developer</p>
 
           <div className="home-screen__actions">
             <Button 

@@ -182,13 +182,16 @@
   font-weight: 600;
   color: #f8fafc;
   margin-bottom: 2px;
+  white-space: pre-line;
+  line-height: 1.6;
 }
 
 .stat-value {
   font-size: 13px;
   font-weight: 500;
   color: #60a5fa;
-  line-height: 1.4;
+  line-height: 1.6;
+  white-space: pre-line;
 }
 
 .abilities-list {
@@ -228,6 +231,10 @@
   }
 }
 
+.education-section {
+  margin: 60px 0 40px 0;
+}
+
 .achievements-section {
   margin: 60px 0 40px 0;
 }
@@ -240,11 +247,71 @@
   text-align: center;
 }
 
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
 .achievements-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
   margin-bottom: 40px;
+}
+
+.education-card {
+  text-align: left;
+  padding: 32px 24px;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.education-card:nth-child(1) { animation-delay: 0.1s; }
+.education-card:nth-child(2) { animation-delay: 0.2s; }
+.education-card:nth-child(3) { animation-delay: 0.3s; }
+
+.education-card:hover {
+  transform: translateY(-8px);
+}
+
+.education-card__icon {
+  font-size: 56px;
+  color: #3b82f6;
+  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.education-card__title {
+  margin: 0 0 12px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.education-card__school {
+  margin: 0 0 8px 0;
+  color: #60a5fa;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.education-card__period {
+  margin: 0 0 16px 0;
+  color: #94a3b8;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.education-card__details {
+  margin: 0;
+  color: #cbd5e1;
+  line-height: 1.6;
+  font-size: 14px;
+  white-space: pre-line;
 }
 
 .achievement-card {
@@ -323,6 +390,10 @@
   
   .about-screen__actions {
     flex-direction: column;
+  }
+
+  .education-grid {
+    grid-template-columns: 1fr;
   }
 
   .achievements-grid {

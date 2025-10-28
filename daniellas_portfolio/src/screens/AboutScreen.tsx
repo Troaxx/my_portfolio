@@ -1,19 +1,31 @@
 import React from 'react';
 import { Card } from '../components';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import TrackChangesIcon from '@mui/icons-material/TrackChanges';
-import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import SchoolIcon from '@mui/icons-material/School';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import StarIcon from '@mui/icons-material/Star';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import './AboutScreen.css';
 
 export const AboutScreen: React.FC = () => {
-  const journeySteps = [
-    { label: 'Started coding', value: '2022 - First Minecraft Plugin' },
-    { label: 'First project', value: '202 - Built my first React app' },
-    { label: 'Current focus', value: '2024 - Mastering TypeScript and modern web development' },
-    { label: 'Passion', value: 'Building production-ready applications' },
+  const educationHistory = [
+    { 
+      title: 'Diploma, Information Technology',
+      school: 'Temasek Polytechnic',
+      period: 'Apr 2024 – Current (Graduating in May 2027)',
+      details: '• President, IT Student Interest Group AY25/26 \n• Executive Committee Member, Girls-in-Tech (Cross-Polytechnic) AY25/26'
+    },
+    { 
+      title: 'Higher NITEC, Financial Services',
+      school: 'ITE (College Central)',
+      period: 'Jan 2022 – May 2024',
+      details: '• Vice-President, Investment Club AY23/24\n• Certified Citi-SMU Trainer'
+    },
+    { 
+      title: 'NITEC, Business Services',
+      school: 'ITE (College Central)',
+      period: 'Jan 2020 – May 2022',
+      details: '• Director\'s list for ITE College Central from January 2021 – June 2021'
+    },
   ];
 
   const achievements = [
@@ -67,48 +79,23 @@ export const AboutScreen: React.FC = () => {
           </div>
         </Card>
 
-        <div className="about-screen__grid">
-
-          <Card className="stats-card">
-            <div className="stats-card__header">
-              <BarChartIcon className="stats-card__icon" />
-              <h3>My Journey</h3>
-            </div>
-            <div className="stats-list">
-              {journeySteps.map((step, index) => (
-                <div key={index} className="stat-item">
-                  <div className="stat-label">{step.label}</div>
-                  <div className="stat-value">{step.value}</div>
+        <div className="education-section">
+          <h2 className="section-title">Education</h2>
+          <div className="education-grid">
+            {educationHistory.map((edu, index) => (
+              <Card key={index} hover className="education-card">
+                <div className="education-card__icon">
+                  <SchoolIcon />
                 </div>
-              ))}
-            </div>
-          </Card>
-
-          <Card className="info-card">
-            <div className="info-card__header">
-              <TrackChangesIcon className="info-card__icon" />
-              <h3>Current Focus</h3>
-            </div>
-            <div className="current-focus-content">
-              <p>Building innovative solutions and mastering new technologies</p>
-              <p>Currently developing this portfolio website using React & TypeScript</p>
-              <p>Exploring Next.js for server-side rendering and performance optimization</p>
-              <p>Learning advanced React patterns and testing frameworks</p>
-            </div>
-          </Card>
-
-          <Card className="info-card">
-            <div className="info-card__header">
-              <AutoAwesomeIcon className="info-card__icon" />
-              <h3>Development Stack</h3>
-            </div>
-            <ul className="abilities-list">
-              <li>Frontend: React/React Native, TypeScript, Flutter</li>
-              <li>Backend: Node.js, Python, MySQL, MongoDB</li>
-              <li>Tools: Git, Figma</li>
-              <li>Learning: Next.js, Testing frameworks</li>
-            </ul>
-          </Card>
+                <h3 className="education-card__title">{edu.title}</h3>
+                <p className="education-card__school">{edu.school}</p>
+                <p className="education-card__period">{edu.period}</p>
+                {edu.details && (
+                  <p className="education-card__details">{edu.details}</p>
+                )}
+              </Card>
+            ))}
+          </div>
         </div>
 
         <div className="achievements-section">
