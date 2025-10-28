@@ -1,9 +1,12 @@
 .home-screen {
   min-height: 100vh;
-  padding: 100px 20px 40px;
+  padding: 80px 20px;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-screen::before {
@@ -38,11 +41,28 @@
 
 .home-screen__layout {
   max-width: 1400px;
-  margin: 0 auto;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
+  z-index: 10;
+  position: relative;
+}
+
+.home-screen__content {
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+  position: relative;
+  z-index: 10;
+}
+
+.home-screen__content--visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .home-screen__terminal {
@@ -246,20 +266,6 @@
   }
 }
 
-.home-screen__content {
-  width: 100%;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s ease;
-  position: relative;
-  z-index: 10;
-}
-
-.home-screen__content--visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 .home-screen__avatar {
   margin-bottom: 32px;
@@ -552,7 +558,7 @@
 
 @media (max-width: 768px) {
   .home-screen {
-    padding: 80px 16px 32px;
+    padding: 120px 16px 32px;
   }
   
   .home-screen__title {
@@ -591,12 +597,12 @@
   }
   
   .avatar-circle {
-    animation: none; /* Disable pulse animation on mobile for performance */
+    animation: none;
   }
   
   .home-screen::before,
   .home-screen::after {
-    animation: none; /* Disable background animations on mobile for performance */
+    animation: none;
   }
 }
 

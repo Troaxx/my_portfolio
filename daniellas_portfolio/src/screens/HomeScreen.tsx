@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Card } from '../components';
-import StarIcon from '@mui/icons-material/Star';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import { Button } from '../components';
 import DownloadIcon from '@mui/icons-material/Download';
 import './HomeScreen.css';
 
@@ -31,7 +28,7 @@ $ echo "Ready to work together?";
         setTerminalContent(fullText.substring(0, charIndex + 1));
         charIndex++;
         
-        let delay = 40; // More consistent base delay
+        let delay = 40;
         const currentChar = fullText[charIndex - 1];
         
         if (currentChar === ' ') {
@@ -39,7 +36,6 @@ $ echo "Ready to work together?";
         } else if (currentChar === '\n') {
           delay = 150;
         } else if (currentChar === '<') {
-          // Skip HTML tags quickly
           const tagEnd = fullText.indexOf('>', charIndex);
           if (tagEnd !== -1) {
             charIndex = tagEnd;
@@ -55,7 +51,6 @@ $ echo "Ready to work together?";
       }
     };
     
-    // Start typing after a short delay
     setTimeout(typeNextChar, 500);
   }, []);
 
@@ -97,48 +92,16 @@ $ echo "Ready to work together?";
           
           <h1 className="home-screen__title">Hi, I'm Daniella</h1>
           <p className="home-screen__intro">Student Developer · Gundam Builder · Problem Solver</p>
-          
-          <Card className="home-screen__card">
-            <p className="home-screen__text">
-              I'm a student at Temasek Polytechnic learning to build things with 
-              React and TypeScript. When I'm not coding, you'll find me building gundams 
-              and exploring new technologies.
-            </p>
-            <div className="home-screen__features">
-              <div className="feature" style={{ '--icon-index': '0' } as React.CSSProperties}>
-                <StarIcon className="feature__icon" />
-                <span className="feature__text">My Skills</span>
-              </div>
-              <div className="feature" style={{ '--icon-index': '1' } as React.CSSProperties}>
-                <EmojiEventsIcon className="feature__icon" />
-                <span className="feature__text">Projects</span>
-              </div>
-              <div className="feature" style={{ '--icon-index': '2' } as React.CSSProperties}>
-                <TrendingUpIcon className="feature__icon" />
-                <span className="feature__text">Experience</span>
-              </div>
-            </div>
-          </Card>
 
           <div className="home-screen__actions">
-            <Button onClick={() => {
-              const element = document.getElementById('about');
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }
-            }} variant="quest" size="large">
-              Explore My Work
-            </Button>
-            
             <Button 
               onClick={() => {
-                // Create a temporary link to download resume
                 const link = document.createElement('a');
-                link.href = '/resume.pdf'; // You'll need to add your resume.pdf to the public folder
+                link.href = '/resume.pdf';
                 link.download = 'Daniella_Resume.pdf';
                 link.click();
               }}
-              variant="secondary" 
+              variant="quest" 
               size="large"
               className="resume-download-btn"
             >

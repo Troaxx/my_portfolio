@@ -10,10 +10,10 @@ import './AboutScreen.css';
 
 export const AboutScreen: React.FC = () => {
   const journeySteps = [
-    { label: 'Started coding', value: '2022 - First "Hello World"' },
-    { label: 'First project', value: '2023 - Built my first React app' },
+    { label: 'Started coding', value: '2022 - First Minecraft Plugin' },
+    { label: 'First project', value: '202 - Built my first React app' },
     { label: 'Current focus', value: '2024 - Mastering TypeScript and modern web development' },
-    { label: 'Goal', value: 'Building production-ready applications' },
+    { label: 'Passion', value: 'Building production-ready applications' },
   ];
 
   const achievements = [

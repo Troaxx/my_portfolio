@@ -1,6 +1,6 @@
 .projects-screen {
   min-height: 100vh;
-  padding: 120px 20px 80px;
+  padding: 0px 20px 80px;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
   position: relative;
   overflow: hidden;
@@ -579,7 +579,7 @@
 
 @media (max-width: 768px) {
   .projects-screen {
-    padding: 80px 16px 32px;
+    padding: 0px 16px 32px;
   }
   
   .projects-screen__title {
