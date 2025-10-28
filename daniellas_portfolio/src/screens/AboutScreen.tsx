@@ -84,9 +84,6 @@ export const AboutScreen: React.FC = () => {
           <div className="education-grid">
             {educationHistory.map((edu, index) => (
               <Card key={index} hover className="education-card">
-                <div className="education-card__icon">
-                  <SchoolIcon />
-                </div>
                 <h3 className="education-card__title">{edu.title}</h3>
                 <p className="education-card__school">{edu.school}</p>
                 <p className="education-card__period">{edu.period}</p>
