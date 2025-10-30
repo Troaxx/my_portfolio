@@ -1,6 +1,6 @@
 .projects-screen {
   min-height: 100vh;
-  padding: 0px 20px 80px;
+  padding: 60px 20px 80px;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
   position: relative;
   overflow: hidden;
@@ -26,8 +26,9 @@
 }
 
 .projects-screen__title {
+  margin-bottom: 500px;
   font-size: 48px;
-  margin: 0 0 8px 0;
+  margin: 0 0 4px 0;
   color: #f8fafc;
   font-weight: 800;
   text-align: center;
@@ -39,7 +40,7 @@
   font-size: 18px;
   color: #94a3b8;
   text-align: center;
-  margin: 0 0 40px 0;
+  margin: 0 0 16px 0;
   font-weight: 600;
   animation: fadeInUp 0.6s ease-out 0.1s backwards;
 }
@@ -385,7 +386,7 @@
 .github-section {
   display: flex;
   justify-content: center;
-  margin: 60px 0 40px 0;
+  margin: 24px 0 32px 0;
   animation: fadeInUp 0.6s ease-out 0.7s backwards;
 }
 
@@ -579,7 +580,7 @@
 
 @media (max-width: 768px) {
   .projects-screen {
-    padding: 0px 16px 32px;
+    padding: 40px 16px 32px;
   }
   
   .projects-screen__title {
