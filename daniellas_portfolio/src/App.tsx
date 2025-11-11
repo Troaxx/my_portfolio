@@ -3,6 +3,7 @@ import { FloatingContactButton, Navbar } from './components';
 import { 
   HomeScreen, 
   AboutScreen, 
+  ServicesScreen,
   SkillsScreen, 
   ProjectsScreen, 
   ContactScreen 
@@ -21,6 +22,8 @@ function App() {
     switch (currentPage) {
       case 'about':
         return <AboutScreen />;
+      case 'services':
+        return <ServicesScreen />;
       case 'projects':
         return (
           <>

@@ -21,6 +21,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
             </button>
           </li>
           <li className="navbar__item">
+            <button onClick={() => onNavigate('services')} className="navbar__link">
+              Services
+            </button>
+          </li>
+          <li className="navbar__item">
             <button onClick={() => onNavigate('projects')} className="navbar__link">
               Projects & Skills
             </button>
