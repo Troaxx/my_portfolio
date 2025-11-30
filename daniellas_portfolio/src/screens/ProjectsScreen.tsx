@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Button, Card } from '../components';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import WebIcon from '@mui/icons-material/Web';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import CloseIcon from '@mui/icons-material/Close';
@@ -18,7 +16,7 @@ interface Project {
   description: string;
   status: 'Completed' | 'In Progress' | 'Contributed to';
   type: 'Hackathon' | 'Personal' | 'Collaborative';
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   tech: string[];
   image?: string;
   learningTakeaways?: string[];
@@ -52,7 +50,6 @@ export const ProjectsScreen: React.FC = () => {
       description: 'Built a comprehensive wealth management platform serving HNWIs. Created by Team Tweaking during the PolyFinTechAPI100 2025 Hackathon.',
       status: 'Completed',
       type: 'Hackathon',
-      icon: <WebIcon />,
       tech: ['TypeScript', 'React Native', 'AI Integration'],
       image: '/aura-header.png',
       githubUrl: 'https://github.com/Troaxx/aura',
@@ -87,7 +84,6 @@ It solves the problem of fragmented financial information across multiple instit
       description: 'A mobile-first web application addressing Japan overtourism through smart technology solutions. ',
       status: 'Completed',
       type: 'Hackathon',
-      icon: <WebIcon />,
       tech: ['TypeScript', 'React'],
       image: '/hello-japan.png',
       githubUrl: 'https://github.com/Troaxx/KOSEN-Global-Camp-A3',
@@ -116,7 +112,6 @@ This project was created by Group A3 during the KOSEN Global Camp, where student
       description: "Temasek Polytechnic Information Technology Student Interest Group (ITSIG)'s official website. Built using React & TypeScript",
       status: 'Contributed to',
       type: 'Collaborative',
-      icon: <WebIcon />,
       tech: ['React', 'TypeScript', 'Web Design'],
       githubUrl: 'https://github.com/TP-ITSIG/tp-itsig.github.io'
     },
@@ -125,7 +120,6 @@ This project was created by Group A3 during the KOSEN Global Camp, where student
       description: 'Tampines West CC x IITSC x SIGs interactive game project',
       status: 'Completed',
       type: 'Collaborative',
-      icon: <CheckCircleIcon />,
       tech: ['HTML', 'JavaScript', 'Python Flask', 'Raspberry Pi'],
       githubUrl: 'https://github.com/Troaxx/twcc'
     },
@@ -307,7 +301,6 @@ This project was created by Group A3 during the KOSEN Global Camp, where student
           {completedProjects.map((project, index) => (
             <Card key={index} hover className="project-card">
               <div className="project-card__header">
-                <div className="project-card__icon">{project.icon}</div>
                 <h3 className="project-card__title">{project.title}</h3>
               </div>
 

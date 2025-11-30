@@ -240,6 +240,121 @@
   margin-top: 0;
 }
 
+.experience-section {
+  margin: 40px 0;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.experience-card {
+  padding: 32px 24px;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.experience-card:nth-child(1) { animation-delay: 0.1s; }
+.experience-card:nth-child(2) { animation-delay: 0.2s; }
+.experience-card:nth-child(3) { animation-delay: 0.3s; }
+
+.experience-card:hover {
+  transform: translateY(-8px);
+}
+
+.experience-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.experience-card__icon {
+  font-size: 48px;
+  color: #3b82f6;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: rgba(59, 130, 246, 0.12);
+  border-radius: 12px;
+}
+
+.experience-card__role {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.experience-card__company {
+  margin: 4px 0 4px 0;
+  color: #60a5fa;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.experience-card__period {
+  display: inline-block;
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.experience-card__summary {
+  margin: 0 0 16px 0;
+  color: #cbd5e1;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.experience-card__highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.experience-card__highlights li {
+  position: relative;
+  padding-left: 16px;
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.experience-card__highlights li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3b82f6;
+}
+
+.experience-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #60a5fa;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.experience-card__link:hover {
+  color: #93c5fd;
+}
+
+.experience-card__link svg {
+  font-size: 14px;
+}
+
 .achievements-section {
   margin: 60px 0 40px 0;
 }
@@ -380,6 +495,14 @@
   letter-spacing: 0.5px;
 }
 
+.achievement-card__link {
+  text-decoration: none;
+}
+
+.achievement-card__link:hover .achievement-card {
+  transform: translateY(-10px);
+}
+
 @media (max-width: 768px) {
   .about-screen {
     padding: 80px 16px 32px;
@@ -407,6 +530,10 @@
 
   .section-title {
     font-size: 28px;
+  }
+
+  .experience-grid {
+    grid-template-columns: 1fr;
   }
 }
 
