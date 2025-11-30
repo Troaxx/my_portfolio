@@ -3,6 +3,7 @@ import { Button, Card } from '../components';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import WebIcon from '@mui/icons-material/Web';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import CloseIcon from '@mui/icons-material/Close';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import './ProjectsScreen.css';
@@ -33,6 +34,20 @@ export const ProjectsScreen: React.FC = () => {
 
   const featuredProjects: Project[] = [
     {
+      title: 'OCBC Ignite Challenge 2025',
+      description: 'Pitched meaningful dashboard insights to reduce manual testing overhead.',
+      status: 'Completed',
+      type: 'Hackathon',
+      icon: <WorkspacePremiumIcon />,
+      tech: ['Unit Testing', 'Automation Testing', 'Jenkins', 'CI/CD Dashboard','Playwright'],
+      image: '',
+      isFeatured: true,
+      learningTakeaways: [
+        'Category Winner of OCBC Ignite Challenge 2025',
+        'Pitched meaningful dashboard insights to reduce manual testing overhead'
+      ]
+    },
+    {
       title: 'AURA - Wealth Management Platform',
       description: 'Built a comprehensive wealth management platform serving HNWIs. Created by Team Tweaking during the PolyFinTechAPI100 2025 Hackathon.',
       status: 'Completed',
@@ -45,7 +60,7 @@ export const ProjectsScreen: React.FC = () => {
       story: `AURA is a standalone wealth management application for High Net Worth Individuals (HNWIs), developed for the PolyFinTechAPI100 2025 Hackathon (Smart Wealth category, sponsored by UBS).
 
 It solves the problem of fragmented financial information across multiple institutions by using the Personal Online Datastore (POD) architecture to consolidate anonymized, aggregated financial data. This provides a holistic portfolio view via contextualized statements.`
-,
+      ,
       features: [
         {
           description: [
@@ -84,7 +99,7 @@ This project was created by Group A3 during the KOSEN Global Camp, where student
 
 <br/><br/>Key features include:<br/><br/>• Dynamic pricing based on crowd levels to distribute tourist flow and reduce overcrowding at popular destinations<br/><br/>• Japanese rules and etiquette guide covering cultural customs and tourist guidelines<br/><br/>• Voice command system that displays common phrases in English, Romaji (romanized pronunciation), and Japanese script to help tourists communicate basic needs`
 
-,
+      ,
       learningTakeaways: [
         'Collaborated internationally with team members from Japan (Kyushu KOSENs), Thailand, and Singapore',
         'Built features including dynamic pricing based on crowd levels to distribute tourist flow',
@@ -122,7 +137,7 @@ This project was created by Group A3 during the KOSEN Global Camp, where student
         <h1 className="projects-screen__title">Featured Projects</h1>
         <p className="projects-screen__subtitle">Things I've built</p>
         <div className="github-section">
-          <Button 
+          <Button
             onClick={() => window.open('https://github.com/Troaxx', '_blank')}
             variant="secondary"
             size="large"
@@ -140,14 +155,14 @@ This project was created by Group A3 during the KOSEN Global Camp, where student
                   <img src={project.image} alt={project.title} />
                 </div>
               )}
-              
+
               <div className="featured-project__content-compact">
                 <div className="project-card__header">
                   <h3 className="project-card__title">{project.title}</h3>
                 </div>
-                
+
                 <p className="project-card__description-compact">{project.description}</p>
-                
+
                 <div className="project-card__tech">
                   {project.tech.map((tech, i) => (
                     <span key={i} className="tech-tag">{tech}</span>
@@ -165,7 +180,7 @@ This project was created by Group A3 during the KOSEN Global Camp, where student
 
                 <div className="project-card__footer-compact">
                   <div onClick={(e) => e.stopPropagation()}>
-                    <Button 
+                    <Button
                       onClick={() => setSelectedProject(project)}
                       variant="quest"
                       size="small"
@@ -185,7 +200,7 @@ This project was created by Group A3 during the KOSEN Global Camp, where student
               <button className="project-modal__close" onClick={() => setSelectedProject(null)}>
                 <CloseIcon />
               </button>
-              
+
               {selectedProject.image && (
                 <div className="project-modal__image">
                   <img src={selectedProject.image} alt={selectedProject.title} />
@@ -235,7 +250,7 @@ This project was created by Group A3 during the KOSEN Global Camp, where student
                           )}
                           {feature.image && (
                             <div className="project-feature__image">
-                              <img src={feature.image}/>
+                              <img src={feature.image} />
                             </div>
                           )}
                         </div>
@@ -259,7 +274,7 @@ This project was created by Group A3 during the KOSEN Global Camp, where student
 
                 <div className="project-modal__actions">
                   {selectedProject.githubUrl && (
-                    <Button 
+                    <Button
                       onClick={() => window.open(selectedProject.githubUrl, '_blank')}
                       variant="secondary"
                       size="medium"
@@ -269,7 +284,7 @@ This project was created by Group A3 during the KOSEN Global Camp, where student
                     </Button>
                   )}
                   {selectedProject.liveDemoUrl && (
-                    <Button 
+                    <Button
                       onClick={() => window.open(selectedProject.liveDemoUrl, '_blank')}
                       variant="secondary"
                       size="medium"
@@ -295,9 +310,9 @@ This project was created by Group A3 during the KOSEN Global Camp, where student
                 <div className="project-card__icon">{project.icon}</div>
                 <h3 className="project-card__title">{project.title}</h3>
               </div>
-              
+
               <p className="project-card__description">{project.description}</p>
-              
+
               <div className="project-card__tech">
                 {project.tech.map((tech, i) => (
                   <span key={i} className="tech-tag">{tech}</span>
@@ -315,7 +330,7 @@ This project was created by Group A3 during the KOSEN Global Camp, where student
 
               <div className="project-card__footer">
                 {project.githubUrl && (
-                  <Button 
+                  <Button
                     onClick={() => window.open(project.githubUrl, '_blank')}
                     variant="secondary"
                     size="small"
@@ -325,7 +340,7 @@ This project was created by Group A3 during the KOSEN Global Camp, where student
                   </Button>
                 )}
                 {project.liveDemoUrl && (
-                  <Button 
+                  <Button
                     onClick={() => window.open(project.liveDemoUrl, '_blank')}
                     variant="secondary"
                     size="small"
