@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { FloatingContactButton, Navbar } from './components';
-import { 
-  HomeScreen, 
-  AboutScreen, 
+import {
+  HomeScreen,
+  AboutScreen,
   ServicesScreen,
-  SkillsScreen, 
-  ProjectsScreen, 
-  ContactScreen 
+  SkillsScreen,
+  ProjectsScreen,
+  ContactScreen
 } from './screens';
 import './App.css';
 

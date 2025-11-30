@@ -37,7 +37,7 @@ export const ProjectsScreen: React.FC = () => {
       status: 'Completed',
       type: 'Hackathon',
       icon: <WorkspacePremiumIcon />,
-      tech: ['Unit Testing', 'Automation Testing', 'Jenkins', 'CI/CD Dashboard','Playwright'],
+      tech: ['Unit Testing', 'Automation Testing', 'Jenkins', 'CI/CD Dashboard', 'Playwright'],
       image: '',
       isFeatured: true,
       learningTakeaways: [

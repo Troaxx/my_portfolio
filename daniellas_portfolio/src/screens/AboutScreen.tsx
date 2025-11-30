@@ -56,16 +56,10 @@ export const AboutScreen: React.FC = () => {
     },
     {
       icon: <StarIcon />,
-<<<<<<< HEAD
-      title: 'OCBC Ignite Challenge 2025 (Category Winner)',
-      description: 'Pitched meaningful dashboard insights to reduce manual testing overhead.',
-      date: '2025'
-=======
       title: 'PolyFinTechAPI100 2024 - Category Finalist',
       description: 'Proposed innovative changes to TEE-UP application.',
       date: '2024',
       link: 'https://github.com/Troaxx/aura'
->>>>>>> 116272f18b25b70a62b43bc2296736bcf4671348
     },
   ];
 
