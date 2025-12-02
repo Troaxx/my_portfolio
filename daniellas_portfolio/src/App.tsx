@@ -4,7 +4,6 @@ import {
   HomeScreen,
   AboutScreen,
   ServicesScreen,
-  SkillsScreen,
   ProjectsScreen,
   ContactScreen
 } from './screens';
@@ -25,12 +24,7 @@ function App() {
       case 'services':
         return <ServicesScreen />;
       case 'projects':
-        return (
-          <>
-            <SkillsScreen />
-            <ProjectsScreen />
-          </>
-        );
+        return <ProjectsScreen />;
       case 'contact':
         return <ContactScreen />;
       default:

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Card } from '../components';
+import { Button, Card, TechMarquee } from '../components';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import CloseIcon from '@mui/icons-material/Close';
@@ -128,6 +128,17 @@ This project was created by Group A3 during the KOSEN Global Camp, where student
   return (
     <div className="projects-screen">
       <div className="projects-screen__content">
+        <div className="skills-section">
+          <h2 className="projects-screen__title">Skills & Technologies</h2>
+          <p className="projects-screen__subtitle">My technical toolbox</p>
+
+          <div className="skills-marquee-container">
+            <TechMarquee />
+          </div>
+        </div>
+
+        <div className="projects-section-divider"></div>
+
         <h1 className="projects-screen__title">Featured Projects</h1>
         <p className="projects-screen__subtitle">Things I've built</p>
         <div className="github-section">
