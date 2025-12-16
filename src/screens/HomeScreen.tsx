@@ -9,7 +9,7 @@ export const HomeScreen: React.FC = () => {
 
   useEffect(() => {
     setTimeout(() => setShowText(true), 300);
-    
+
     let charIndex = 0;
     const fullText = `$ whoami
 > daniella
@@ -22,15 +22,15 @@ $ npm run build
 > Bundle size: 245KB
 $ echo "Ready to work together?";
 > Ready to work together?`
-    
+
     const typeNextChar = () => {
       if (charIndex < fullText.length) {
         setTerminalContent(fullText.substring(0, charIndex + 1));
         charIndex++;
-        
+
         let delay = 40;
         const currentChar = fullText[charIndex - 1];
-        
+
         if (currentChar === ' ') {
           delay = 20;
         } else if (currentChar === '\n') {
@@ -46,11 +46,11 @@ $ echo "Ready to work together?";
         } else if (currentChar === '>') {
           delay = 10;
         }
-        
+
         setTimeout(typeNextChar, delay);
       }
     };
-    
+
     setTimeout(typeNextChar, 500);
   }, []);
 
@@ -67,7 +67,7 @@ $ echo "Ready to work together?";
               </div>
               <div className="screen-title">Terminal - Portfolio</div>
             </div>
-            
+
             <div className="terminal-content">
               <div className="terminal-lines">
                 <div className="terminal-text">
@@ -86,22 +86,22 @@ $ echo "Ready to work together?";
         <div className={`home-screen__content ${showText ? 'home-screen__content--visible' : ''}`}>
           <div className="home-screen__avatar">
             <div className="avatar-circle">
-              <img src="/my-pic.jpg" alt="Daniella" className="avatar-image" />
+              <img src="my-pic.jpg" alt="Daniella" className="avatar-image" />
             </div>
           </div>
-          
+
           <h1 className="home-screen__title">Hi, I'm Daniella!</h1>
           <p className="home-screen__intro">Student Developer</p>
 
           <div className="home-screen__actions">
-            <Button 
+            <Button
               onClick={() => {
                 const link = document.createElement('a');
                 link.href = '/resume.pdf';
                 link.download = 'Daniella_Resume.pdf';
                 link.click();
               }}
-              variant="quest" 
+              variant="quest"
               size="large"
               className="resume-download-btn"
             >

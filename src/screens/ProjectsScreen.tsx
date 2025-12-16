@@ -41,31 +41,31 @@ export const ProjectsScreen: React.FC = () => {
     {
       title: 'Frontend Development',
       skills: [
-        { name: 'React', path: '/project-images/react.png' },
-        { name: 'TypeScript', path: '/project-images/typescript.png' },
-        { name: 'HTML5', path: '/project-images/html5.png' },
-        { name: 'CSS3', path: '/project-images/css3.png' },
-        { name: 'Flutter', path: '/project-images/flutter.png' },
-        { name: 'Vite', path: '/project-images/vite.png' },
+        { name: 'React', path: 'project-images/react.png' },
+        { name: 'TypeScript', path: 'project-images/typescript.png' },
+        { name: 'HTML5', path: 'project-images/html5.png' },
+        { name: 'CSS3', path: 'project-images/css3.png' },
+        { name: 'Flutter', path: 'project-images/flutter.png' },
+        { name: 'Vite', path: 'project-images/vite.png' },
       ]
     },
     {
       title: 'Backend & Database',
       skills: [
-        { name: 'Node.js', path: '/project-images/nodejs.png' },
-        { name: 'Python', path: '/project-images/python.png' },
-        { name: 'Java', path: '/project-images/java.png' },
-        { name: 'Dart', path: '/project-images/dart.png' },
-        { name: 'SQL', path: '/project-images/mysql.png' },
-        { name: 'Firebase', path: '/project-images/firebase.png' },
+        { name: 'Node.js', path: 'project-images/nodejs.png' },
+        { name: 'Python', path: 'project-images/python.png' },
+        { name: 'Java', path: 'project-images/java.png' },
+        { name: 'Dart', path: 'project-images/dart.png' },
+        { name: 'SQL', path: 'project-images/mysql.png' },
+        { name: 'Firebase', path: 'project-images/firebase.png' },
       ]
     },
     {
       title: 'CI/CD',
       skills: [
-        { name: 'Jenkins', path: '/project-images/Jenkins.png' },
-        { name: 'Jest', path: '/project-images/Jest.png' },
-        { name: 'Playwright', path: '/project-images/Playwright.png' },
+        { name: 'Jenkins', path: 'project-images/Jenkins.png' },
+        { name: 'Jest', path: 'project-images/Jest.png' },
+        { name: 'Playwright', path: 'project-images/Playwright.png' },
       ]
     }
   ];
@@ -78,7 +78,7 @@ export const ProjectsScreen: React.FC = () => {
       type: 'Hackathon',
       icon: <WorkspacePremiumIcon />,
       tech: ['Playwright', 'Jenkins', 'Istanbul (nyc)', 'React', 'CI/CD'],
-      image: 'public/project-images/ocbc-ignite.png',
+      image: 'project-images/ocbc-ignite.png',
       isFeatured: true,
       instagramUrl: 'https://www.instagram.com/p/DRtIpBTEnXz/',
       story: `<strong>Problem Statement: Enable cross platform browsers automation</strong><br/><br/>With the growing number of applications in the bank, the test cases will increase. How do we develop a scalable and user-friendly platform to run these test cases automatically without users’ manual intervention?<br/><br/><em>*Note: Images of this project are not posted intentionally to maintain confidentiality.</em>`,
@@ -107,7 +107,7 @@ export const ProjectsScreen: React.FC = () => {
       status: 'Completed',
       type: 'Hackathon',
       tech: ['TypeScript', 'React Native', 'AI Integration'],
-      image: '/aura-header.png',
+      image: 'aura-header.png',
       githubUrl: 'https://github.com/Troaxx/aura',
       isFeatured: true,
       story: `AURA is a standalone wealth management application for High Net Worth Individuals (HNWIs), developed for the PolyFinTechAPI100 2025 Hackathon (Smart Wealth category, sponsored by UBS).
@@ -124,7 +124,7 @@ It solves the problem of fragmented financial information across multiple instit
             '<strong>Private Vault:</strong> A secure and encrypted overview of all assets held across multiple institutions.',
             '<strong>AI Chatbot Companion:</strong> An always-available assistant that interprets contextualised statements and UBS-specific insights.'
           ],
-          image: '/aura-features.png'
+          image: 'aura-features.png'
         }
       ],
       learningTakeaways: [
@@ -141,7 +141,7 @@ It solves the problem of fragmented financial information across multiple instit
       status: 'Completed',
       type: 'Hackathon',
       tech: ['TypeScript', 'React'],
-      image: '/hello-japan.png',
+      image: 'hello-japan.png',
       githubUrl: 'https://github.com/Troaxx/KOSEN-Global-Camp-A3',
       liveDemoUrl: 'https://kosena3.netlify.app/',
       isFeatured: true,
