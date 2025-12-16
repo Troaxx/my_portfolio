@@ -97,7 +97,7 @@ $ echo "Ready to work together?";
             <Button
               onClick={() => {
                 const link = document.createElement('a');
-                link.href = '/resume.pdf';
+                link.href = 'Daniella_Resume.pdf';
                 link.download = 'Daniella_Resume.pdf';
                 link.click();
               }}
