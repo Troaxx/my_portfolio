@@ -1,24 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Button, Card } from '../components';
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import PublicIcon from '@mui/icons-material/Public';
+import emailjs from '@emailjs/browser';
 import './ContactScreen.css';
 
 export const ContactScreen: React.FC = () => {
+  const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert('Thanks for your message! This is a demo, so no actual email is sent.');
-    setFormData({ name: '', email: '', message: '' });
-  };
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -27,11 +23,74 @@ export const ContactScreen: React.FC = () => {
     });
   };
 
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Rate Limiting (Client-side)
+    const LIMIT = 3;
+    const TIME_WINDOW = 24 * 60 * 60 * 1000; // 24 hours
+    const STORAGE_KEY = 'contact_form_limit';
+
+    const checkRateLimit = () => {
+      const storedData = localStorage.getItem(STORAGE_KEY);
+      const now = Date.now();
+
+      if (!storedData) {
+        return { count: 0, firstTimestamp: now };
+      }
+
+      const { count, firstTimestamp } = JSON.parse(storedData);
+
+      if (now - firstTimestamp > TIME_WINDOW) {
+        // Reset if window passed
+        return { count: 0, firstTimestamp: now };
+      }
+
+      return { count, firstTimestamp };
+    };
+
+    const { count, firstTimestamp } = checkRateLimit();
+
+    if (count >= LIMIT) {
+      alert(`You have reached the messages limit. Please try again tomorrow.`);
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (form.current) {
+      emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, {
+        publicKey: PUBLIC_KEY,
+      })
+        .then(
+          () => {
+            // Update rate limit on success
+            localStorage.setItem(STORAGE_KEY, JSON.stringify({
+              count: count + 1,
+              firstTimestamp
+            }));
+
+            alert('Message sent successfully!');
+            setFormData({ name: '', email: '', message: '' });
+            setIsSubmitting(false);
+          },
+          (error) => {
+            console.error('FAILED...', error.text);
+            alert('Failed to send message. Please try again later.');
+            setIsSubmitting(false);
+          },
+        );
+    }
+  };
+
   const socialLinks = [
-    { icon: <LinkedInIcon />, name: 'LinkedIn', url: '#' },
+    { icon: <LinkedInIcon />, name: 'LinkedIn', url: 'https://www.linkedin.com/in/daniella-han/' },
     { icon: <GitHubIcon />, name: 'GitHub', url: 'https://github.com/Troaxx' },
-    { icon: <EmailIcon />, name: 'Email', url: 'mailto:iitroaxx@gmail.com' },
-    { icon: <TwitterIcon />, name: 'Twitter', url: '#' },
+    { icon: <EmailIcon />, name: 'Email', url: 'mailto:daniellahan@live.com' },
   ];
 
   return (
@@ -46,7 +105,11 @@ export const ContactScreen: React.FC = () => {
               <EmailIcon className="section-icon" />
               Get In Touch
             </h2>
-            <form onSubmit={handleSubmit} className="contact-form">
+            <form
+              ref={form}
+              onSubmit={sendEmail}
+              className="contact-form"
+            >
               <div className="form-group">
                 <label htmlFor="name">Your Name</label>
                 <input
@@ -83,8 +146,13 @@ export const ContactScreen: React.FC = () => {
                   placeholder="Tell me about your project or just say hi!"
                 />
               </div>
-              <Button type="submit" variant="quest" size="large">
-                Send Message
+              <Button
+                type="submit"
+                variant="quest"
+                size="large"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
             </form>
           </Card>
@@ -92,7 +160,7 @@ export const ContactScreen: React.FC = () => {
           <Card className="social-card">
             <h2 className="section-title">
               <PublicIcon className="section-icon" />
-              Connect Online
+              Socials
             </h2>
             <div className="social-links">
               {socialLinks.map((link, index) => (
@@ -114,4 +182,3 @@ export const ContactScreen: React.FC = () => {
     </div>
   );
 };
-

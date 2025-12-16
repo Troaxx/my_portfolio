@@ -31,6 +31,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
             </button>
           </li>
           <li className="navbar__item">
+            <button onClick={() => onNavigate('certificates')} className="navbar__link">
+              Certificates
+            </button>
+          </li>
+          <li className="navbar__item">
             <button onClick={() => onNavigate('contact')} className="navbar__link">
               Contact
             </button>

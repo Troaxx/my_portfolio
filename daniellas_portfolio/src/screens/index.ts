@@ -3,4 +3,4 @@ export { AboutScreen } from './AboutScreen';
 export { ServicesScreen } from './ServicesScreen';
 export { ProjectsScreen } from './ProjectsScreen';
 export { ContactScreen } from './ContactScreen';
-
+export { CertificatesScreen } from './CertificatesScreen';

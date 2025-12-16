@@ -1,6 +1,6 @@
 .projects-screen {
   min-height: 100vh;
-  padding: 60px 20px 80px;
+  padding: 120px 20px 80px;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
   position: relative;
   overflow: hidden;
@@ -26,7 +26,6 @@
 }
 
 .projects-screen__title {
-  margin-bottom: 500px;
   font-size: 48px;
   margin: 0 0 4px 0;
   color: #f8fafc;
@@ -34,6 +33,11 @@
   text-align: center;
   animation: fadeInUp 0.6s ease-out;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: text-shadow 0.3s ease;
+}
+
+.projects-screen__title:hover {
+  text-shadow: 2px 2px 0px rgba(96, 165, 250, 0.5), -2px -2px 0px rgba(244, 114, 182, 0.5);
 }
 
 .projects-screen__subtitle {
@@ -52,11 +56,19 @@
   margin-bottom: 40px;
 }
 
+.featured-projects-grid > * {
+  animation: fadeInScale 0.5s ease-out backwards;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 24px;
   margin-bottom: 40px;
+}
+
+.projects-grid > * {
+  animation: fadeInScale 0.5s ease-out backwards;
 }
 
 .featured-project-card-compact {
@@ -306,6 +318,29 @@
   margin-bottom: 16px;
 }
 
+.project-card__achievements {
+  background: rgba(96, 165, 250, 0.08);
+  border: 1px solid rgba(96, 165, 250, 0.4);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-top: 12px;
+}
+
+.project-card__achievements p {
+  margin: 0 0 6px 0;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #93c5fd;
+}
+
+.project-card__achievements ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #1e293b;
+  font-weight: 600;
+}
+
 .project-card__footer {
   display: flex;
   justify-content: flex-end;
@@ -347,7 +382,7 @@
   border-radius: 20px;
   font-size: 12px;
   font-weight: 700;
-  text-transform: uppercase;
+    text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
@@ -661,25 +696,37 @@
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
-.skill-tags span {
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   background: rgba(15, 23, 42, 0.6);
   color: #e2e8f0;
-  padding: 8px 16px;
-  border-radius: 8px;
+  padding: 10px 16px;
+  border-radius: 12px;
   font-size: 14px;
   font-weight: 500;
   border: 1px solid rgba(148, 163, 184, 0.1);
   transition: all 0.2s ease;
+  cursor: default;
 }
 
-.skill-tags span:hover {
+.skill-item img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.skill-item:hover {
   background: rgba(59, 130, 246, 0.2);
   color: #60a5fa;
   border-color: rgba(59, 130, 246, 0.4);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
 }
 
 @media (max-width: 768px) {

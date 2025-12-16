@@ -5,8 +5,10 @@ import {
   AboutScreen,
   ServicesScreen,
   ProjectsScreen,
-  ContactScreen
+  ContactScreen,
+  CertificatesScreen
 } from './screens';
+
 import './App.css';
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
         return <ServicesScreen />;
       case 'projects':
         return <ProjectsScreen />;
+      case 'certificates':
+        return <CertificatesScreen />;
       case 'contact':
         return <ContactScreen />;
       default:

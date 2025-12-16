@@ -49,10 +49,10 @@ export const AboutScreen: React.FC = () => {
     },
     {
       icon: <WorkspacePremiumIcon />,
-      title: 'KOSEN Global Camp - Most Feasible Award',
-      description: 'Prototype developed for KOSEN Global Camp Group A3, focusing on solving over-tourism issues in Japan.',
-      date: '2024',
-      link: 'https://github.com/Troaxx/KOSEN-Global-Camp-A3'
+      title: 'OCBC Ignite Challenge 2025 - Category Winner',
+      description: 'Pitched meaningful dashboard insights to reduce manual testing overhead.',
+      date: '2025',
+      link: 'https://github.com/Troaxx/ocbc-ignite-challenge'
     },
     {
       icon: <StarIcon />,
@@ -154,10 +154,6 @@ export const AboutScreen: React.FC = () => {
               Outside of coding, I'm a huge fan of building Gundam models. There's something therapeutic
               about following instructions precisely, just like debugging code. Both require patience,
               attention to detail, and the satisfaction of seeing something come together piece by piece.
-            </p>
-            <p>
-              <strong>Write your personal story here - what drives you, what you're passionate about,
-                your journey so far, and where you want to go. Make it conversational and authentic!</strong>
             </p>
           </div>
         </Card>
