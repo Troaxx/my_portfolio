@@ -59,7 +59,7 @@ export const AboutScreen: React.FC = () => {
       title: 'PolyFinTechAPI100 2024 - Category Finalist',
       description: 'Proposed innovative changes to TEE-UP application.',
       date: '2024',
-      link: 'https://github.com/Troaxx/aura'
+      link: ''
     },
   ];
 
@@ -117,7 +117,8 @@ export const AboutScreen: React.FC = () => {
         ),
         'Implemented CI/CD workflow.',
         'Assisted in the porting over from old to new website.',
-        'Created digital solutions for events.'
+        'Created digital solutions for events.',
+        'Tech Stack: React + Vite'
       ]
     },
     {
@@ -127,7 +128,8 @@ export const AboutScreen: React.FC = () => {
       period: 'August 2025 – Present',
       summary: 'Worked on implementation and testing of prototypes.',
       highlights: [
-        'Led a team of 3 on product implementation, testing, and incremental improvement.'
+        'Led a team of 3 on product implementation, testing, and incremental improvement.',
+        'Tech Stack: HTML + CSS + JavaScript'
       ]
     }
   ] satisfies WorkExperienceItem[];
