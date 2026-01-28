@@ -74,6 +74,13 @@ function App() {
           <Route path="certificates" element={<Certificates />} />
           <Route path="services" element={<Services />} />
         </Route>
+
+        {/* Debug Route - Isolated from Layout */}
+        <Route path="/v2/debug-projects" element={
+          <div style={{ backgroundColor: '#111', minHeight: '100vh' }}>
+            <Projects />
+          </div>
+        } />
       </Routes>
     </BrowserRouter>
   );

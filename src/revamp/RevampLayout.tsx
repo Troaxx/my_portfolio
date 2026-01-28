@@ -7,7 +7,7 @@ const RevampLayout: React.FC = () => {
     return (
         <div className="revamp-app" style={{ fontFamily: '"JetBrains Mono", monospace', minHeight: '100vh', color: '#fff' }}>
             {/* Persistent Background */}
-            <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh', zIndex: 0 }}>
+            <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh', zIndex: 0, pointerEvents: 'none' }}>
                 <FaultyTerminal
                     scale={1.5}
                     gridMul={[2, 1]}
