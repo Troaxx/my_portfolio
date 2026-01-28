@@ -1,0 +1,15 @@
+.pixel-blast-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: auto; /* Allows interaction */
+  }
+  
+  /* Ensure canvas is block-level to avoid scrollbars */
+  .pixel-blast-container canvas {
+    display: block;
+  }

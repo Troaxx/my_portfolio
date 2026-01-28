@@ -1,0 +1,90 @@
+.revamp-certificates {
+    min-height: 100vh;
+    padding: 8rem 2rem 4rem;
+    display: flex;
+    justify-content: center;
+}
+
+.certificates-container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.certificates-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.cert-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 4/3;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.cert-item:hover {
+    transform: translateY(-5px);
+    border-color: #6495ed;
+}
+
+.cert-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Or cover depending on pref */
+    display: block;
+}
+
+.cert-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.cert-item:hover .cert-overlay {
+    opacity: 1;
+}
+
+.cert-overlay span {
+    color: #fff;
+    font-weight: 600;
+    border: 1px solid #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+/* Modal tweaks specific to images */
+.image-modal-content {
+    background: transparent;
+    box-shadow: none;
+    max-width: 90vh;
+    /* Landscape focus */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-modal-content img {
+    max-width: 100%;
+    max-height: 85vh;
+    border-radius: 8px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
