@@ -7,6 +7,8 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import CloseIcon from '@mui/icons-material/Close';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import './Projects.css';
 
 // --- Data Types ---
@@ -34,7 +36,6 @@ interface Project {
 }
 
 export const Projects: React.FC = () => {
-    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const location = useLocation();
 
     // Helper to resolve paths correctly including base URL
@@ -126,11 +127,68 @@ export const Projects: React.FC = () => {
 
     const completedProjects: Project[] = [
         {
+            title: 'Synapse - AI Peer Tutoring',
+            description: 'AI-powered platform connecting students for personalized peer tutoring sessions at Temasek Polytechnic.',
+            status: 'Completed',
+            type: 'Personal',
+            tech: ['React', 'Node.js', 'MongoDB', 'Gemini AI'],
+            githubUrl: 'https://github.com/Troaxx/synapse'
+        },
+        {
+            title: 'DevOps Pipeline Project',
+            description: 'End-to-end CI/CD demonstration using Jenkins, Docker, Kubernetes, and automated testing.',
+            status: 'Completed',
+            type: 'Personal',
+            tech: ['Jenkins', 'Docker', 'K8s', 'Playwright'],
+            githubUrl: 'https://github.com/Troaxx/devops'
+        },
+        {
+            title: 'Tech Explorer (TPOH)',
+            description: 'Hardware-free web version of the Digital Kampong game, optimized for the TP Open House showcase.',
+            status: 'Completed',
+            type: 'Personal',
+            tech: ['HTML', 'CSS', 'JavaScript'],
+            githubUrl: 'https://github.com/Troaxx/tpoh',
+            liveDemoUrl: 'https://tpohtechexplorer.netlify.app/'
+        },
+        {
+            title: 'Carpool SG',
+            description: 'Full-featured flutter mobile app for ride-sharing with real-time maps and payment integration.',
+            status: 'Completed',
+            type: 'Personal',
+            tech: ['Flutter', 'Firebase', 'OneStreetMap API', 'Nominatim API', "NETS Sandbox"],
+            githubUrl: 'https://github.com/Troaxx/MBAP-Project'
+        },
+        {
+            title: 'Telegram List Bot',
+            description: 'Smart bot for managing shared lists in groups using natural language commands.',
+            status: 'Completed',
+            type: 'Personal',
+            tech: ['Python', 'Telegram API'],
+            githubUrl: 'https://github.com/Troaxx/telegram-list-bot'
+        },
+        {
+            title: 'Vendy System',
+            description: 'Administration dashboard for managing campus vending machine inventory and status.',
+            status: 'Completed',
+            type: 'Personal',
+            tech: ['Node.js', 'MySQL', 'Express'],
+            githubUrl: 'https://github.com/Troaxx/vendy'
+        },
+        {
+            title: 'Scissors Paper Stone CLI',
+            description: 'Robust command-line game with score tracking and input validation.',
+            status: 'Completed',
+            type: 'Personal',
+            tech: ['Python'],
+            githubUrl: 'https://github.com/Troaxx/scissorsPaperStone'
+        },
+        {
             title: 'PolyFinTechAPI100 2024',
             description: 'Finalist in the 2024 iteration of the hackathon. Category Finalist - Team InsurTech.',
             status: 'Completed',
             type: 'Hackathon',
-            tech: ['Hackathon', 'FinTech'],
+            tech: ['Figma'],
         },
         {
             title: 'TP ITSIG Website',
@@ -143,25 +201,52 @@ export const Projects: React.FC = () => {
             liveDemoUrl: 'https://tp-itsig.github.io/#/',
         },
         {
-            title: 'TWCC Game',
-            description: 'Tampines West CC x IITSC x SIGs interactive game project',
+            title: 'TWCC Game (Hardware)',
+            description: 'Interactive digital booth game with Raspberry Pi (GPIO) integration for Tampines West CC.',
             status: 'Completed',
             type: 'Collaborative',
-            tech: ['HTML', 'JavaScript', 'Python Flask', 'Raspberry Pi'],
-            id: 'twcc'
+            tech: ['Python Flask', 'Raspberry Pi', 'GPIO'],
+            id: 'twcc',
+            githubUrl: 'https://github.com/Troaxx/twcc'
         }
     ];
+
+    const allProjects = [...featuredProjects, ...completedProjects];
+    const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+    const selectedProject = selectedIndex !== null ? allProjects[selectedIndex] : null;
 
     useEffect(() => {
         if (location.state && (location.state as any).openProject) {
             const title = (location.state as any).openProject;
-            const found = [...featuredProjects, ...completedProjects].find(p => p.title === title);
-            if (found) {
-                setSelectedProject(found);
+            const index = allProjects.findIndex(p => p.title === title);
+            if (index !== -1) {
+                setSelectedIndex(index);
                 window.history.replaceState({}, '');
             }
         }
     }, [location]);
+
+    const handleNext = (e?: React.MouseEvent) => {
+        e?.stopPropagation();
+        setSelectedIndex((prev) => (prev === null ? null : (prev + 1) % allProjects.length));
+    };
+
+    const handlePrev = (e?: React.MouseEvent) => {
+        e?.stopPropagation();
+        setSelectedIndex((prev) => (prev === null ? null : (prev - 1 + allProjects.length) % allProjects.length));
+    };
+
+    // Keyboard Navigation
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (selectedIndex === null) return;
+            if (e.key === 'ArrowRight') handleNext();
+            if (e.key === 'ArrowLeft') handlePrev();
+            if (e.key === 'Escape') setSelectedIndex(null);
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [selectedIndex]);
 
     return (
         <div className="revamp-projects">
@@ -186,7 +271,8 @@ export const Projects: React.FC = () => {
                             key={index}
                             className="project-card featured"
                             onClick={() => {
-                                setSelectedProject(project);
+                                const globalIndex = allProjects.indexOf(project);
+                                setSelectedIndex(globalIndex);
                             }}
                         >
                             {project.image && (
@@ -269,12 +355,15 @@ export const Projects: React.FC = () => {
                         <div
                             key={index}
                             className="project-card compact"
-                            onClick={() => setSelectedProject(project)}
+                            onClick={() => {
+                                const globalIndex = allProjects.indexOf(project);
+                                setSelectedIndex(globalIndex);
+                            }}
                         >
                             <h3>{project.title}</h3>
                             <p>{project.description}</p>
                             {project.githubUrl && (
-                                <a href={project.githubUrl} target="_blank" className="link-btn">
+                                <a href={project.githubUrl} target="_blank" className="link-btn" onClick={(e) => e.stopPropagation()}>
                                     <GitHubIcon fontSize="small" /> View Code
                                 </a>
                             )}
@@ -287,17 +376,21 @@ export const Projects: React.FC = () => {
             {selectedProject && createPortal(
                 <div
                     className="project-modal-overlay"
-                    onClick={() => setSelectedProject(null)}
+                    onClick={() => setSelectedIndex(null)}
                 // No inline styles needed as CSS handles it now, but we keep basic flex structure here if needed or let CSS handle it.
                 // Actually, let's let CSS handle everything to be clean.
                 >
+                    <button className="nav-btn prev-btn" onClick={handlePrev}>
+                        <ArrowBackIosNewIcon fontSize="large" />
+                    </button>
+
                     <div
                         className="project-modal-content"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <button
                             className="project-modal-close"
-                            onClick={() => setSelectedProject(null)}
+                            onClick={() => setSelectedIndex(null)}
                         >
                             <CloseIcon />
                         </button>
@@ -320,6 +413,17 @@ export const Projects: React.FC = () => {
                         <div className="project-modal-story">
                             <div dangerouslySetInnerHTML={{ __html: selectedProject.story || selectedProject.description }} />
                         </div>
+
+                        {selectedProject.tech && selectedProject.tech.length > 0 && (
+                            <div className="project-modal-tech" style={{ marginTop: '1.5rem', marginBottom: '1.5rem' }}>
+                                <h4 style={{ marginBottom: '0.5rem', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#8892b0' }}>Technologies</h4>
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                                    {selectedProject.tech.map((t, i) => (
+                                        <span key={i} className="tech-pill" style={{ fontSize: '0.85rem', padding: '0.25rem 0.75rem' }}>{t}</span>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
 
                         {selectedProject.features && selectedProject.features.length > 0 && (
                             <div className="project-modal-features">
@@ -364,6 +468,10 @@ export const Projects: React.FC = () => {
                             )}
                         </div>
                     </div>
+
+                    <button className="nav-btn next-btn" onClick={handleNext}>
+                        <ArrowForwardIosIcon fontSize="large" />
+                    </button>
                 </div>,
                 document.body
             )}
