@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 import CloseIcon from '@mui/icons-material/Close';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import './Certificates.css';
 
 interface Certificate {
@@ -12,7 +14,7 @@ interface Certificate {
 
 // Ported Data
 const certificatesList: Certificate[] = [
-    { id: '1', src: `${import.meta.env.BASE_URL}certificates-testmonials/1765285922560-5fe0b30a-3e00-4ddf-a2eb-88136d50d74d_1.png`, alt: 'Certificate 1' },
+    { id: '1', src: `${import.meta.env.BASE_URL}certificates-testmonials/1765285922560-5fe0b30a-3e00-4ddf-a2eb-88136d50d74d_1.png`, alt: 'Higher NITEC Certificate' },
     { id: '2', src: `${import.meta.env.BASE_URL}certificates-testmonials/2018_edusave.png`, alt: '2018 Edusave' },
     { id: '3', src: `${import.meta.env.BASE_URL}certificates-testmonials/2019_edusave.png`, alt: '2019 Edusave' },
     { id: '4', src: `${import.meta.env.BASE_URL}certificates-testmonials/2019_edusave_bursary.png`, alt: '2019 Edusave Bursary' },
@@ -31,6 +33,7 @@ const certificatesList: Certificate[] = [
     { id: '17', src: `${import.meta.env.BASE_URL}certificates-testmonials/aws-cloud-practicioner.png`, alt: 'AWS Cloud Practitioner' },
     { id: '18', src: `${import.meta.env.BASE_URL}certificates-testmonials/prudential_pyi.png`, alt: 'Prudential PYI' },
     { id: '19', src: `${import.meta.env.BASE_URL}certificates-testmonials/sjc-testimonial.png`, alt: 'SJC Testimonial' },
+    { id: '20', src: `${import.meta.env.BASE_URL}certificates-testmonials/NETS-Sandbox.jpg`, alt: 'NETS Sandbox' },
 ];
 
 export const Certificates: React.FC = () => {
@@ -93,25 +96,25 @@ export const Certificates: React.FC = () => {
 
             {selectedImage && createPortal(
                 <div className="modal-overlay" onClick={() => setSelectedIndex(null)}>
+                    <button className="nav-btn prev-btn" onClick={handlePrev}>
+                        <ArrowBackIosNewIcon fontSize="large" />
+                    </button>
+
                     <div className="modal-content image-modal-content" onClick={(e) => e.stopPropagation()}>
                         <button className="modal-close" onClick={() => setSelectedIndex(null)}>
                             <CloseIcon />
                         </button>
 
-                        <button className="nav-btn prev-btn" onClick={handlePrev}>
-                            &#10094;
-                        </button>
-
                         <img src={selectedImage.src} alt={selectedImage.alt} />
-
-                        <button className="nav-btn next-btn" onClick={handleNext}>
-                            &#10095;
-                        </button>
 
                         <div className="modal-caption">
                             {selectedImage.alt}
                         </div>
                     </div>
+
+                    <button className="nav-btn next-btn" onClick={handleNext}>
+                        <ArrowForwardIosIcon fontSize="large" />
+                    </button>
                 </div>,
                 document.body
             )}
