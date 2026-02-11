@@ -75,12 +75,13 @@ export const Projects: React.FC = () => {
         },
         {
             title: 'AURA - Wealth Management Platform',
-            description: 'Built a comprehensive wealth management platform serving HNWIs. Created by Team Tweaking during the PolyFinTechAPI100 2025 Hackathon.',
+            description: 'Built a comprehensive wealth management mobile prototype serving HNWIs. Created by Team Tweaking during the PolyFinTechAPI100 2025 Hackathon.',
             status: 'Completed',
             type: 'Hackathon',
             tech: ['TypeScript', 'React Native', 'AI Integration'],
             image: resolvePath('/aura-header.png'),
             githubUrl: 'https://github.com/Troaxx/aura',
+            liveDemoUrl: 'https://aura-teamtweaking.netlify.app/',
             isFeatured: true,
             features: [
                 {
@@ -138,7 +139,8 @@ export const Projects: React.FC = () => {
             type: 'Collaborative',
             tech: ['React', 'TypeScript', 'Web Design'],
             id: 'itsig',
-            githubUrl: 'https://github.com/TP-ITSIG/tp-itsig.github.io'
+            githubUrl: 'https://github.com/TP-ITSIG/tp-itsig.github.io',
+            liveDemoUrl: 'https://tp-itsig.github.io/#/',
         },
         {
             title: 'TWCC Game',
@@ -219,6 +221,7 @@ export const Projects: React.FC = () => {
                         <p>Creating responsive, interactive user interfaces with modern frameworks for both mobile and web.</p>
                         <div className="tech-tags">
                             <span className="tech-tag">React / React Native</span>
+                            <span className="tech-tag">Next.js</span>
                             <span className="tech-tag">TypeScript</span>
                             <span className="tech-tag">Vite</span>
                             <span className="tech-tag">Tailwind</span>
@@ -248,6 +251,9 @@ export const Projects: React.FC = () => {
                             <span className="tech-tag">Jenkins</span>
                             <span className="tech-tag">Playwright</span>
                             <span className="tech-tag">Jest</span>
+                            <span className="tech-tag">Supertest</span>
+                            <span className="tech-tag">Kubernetes</span>
+                            <span className="tech-tag">Docker</span>
                             <span className="tech-tag">GitHub Actions</span>
                             <span className="tech-tag">Istanbul (NYC) / c8</span>
                         </div>

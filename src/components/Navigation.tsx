@@ -13,15 +13,15 @@ interface NavLinkItem {
 }
 
 const navLinks: NavLinkItem[] = [
-    { name: 'Home', path: '/v2' },
-    { name: 'Projects', path: '/v2/projects' },
+    { name: 'Home', path: '/' },
+    { name: 'Projects', path: '/projects' },
     {
         name: 'About',
-        path: '/v2/about',
+        path: '/about',
         children: [
-            { name: 'Services', path: '/v2/services' },
-            { name: 'Blogs', path: '/v2/blogs' },
-            { name: 'Certificates', path: '/v2/certificates' },
+            { name: 'Services', path: '/services' },
+            { name: 'Blogs', path: '/blogs' },
+            { name: 'Certificates', path: '/certificates' },
         ]
     },
 ];
@@ -76,7 +76,7 @@ export const Navigation: React.FC = () => {
                             >
                                 <NavLink
                                     to={link.path}
-                                    end={link.path === '/v2'}
+                                    end={link.path === '/'}
                                     className={({ isActive }) =>
                                         `nav-link ${isActive ? 'active' : ''}`
                                     }
@@ -151,7 +151,7 @@ export const Navigation: React.FC = () => {
                                     <div className="mobile-link-header">
                                         <NavLink
                                             to={link.path}
-                                            end={link.path === '/v2'}
+                                            end={link.path === '/'}
                                             className={({ isActive }) =>
                                                 `mobile-link ${isActive ? 'active' : ''}`
                                             }
@@ -160,7 +160,7 @@ export const Navigation: React.FC = () => {
                                             {link.name}
                                         </NavLink>
                                         {link.children && (
-                                            <button 
+                                            <button
                                                 className={`mobile-dropdown-toggle ${mobileDropdownOpen === link.name ? 'open' : ''}`}
                                                 onClick={() => toggleMobileDropdown(link.name)}
                                             >
@@ -168,7 +168,7 @@ export const Navigation: React.FC = () => {
                                             </button>
                                         )}
                                     </div>
-                                    
+
                                     {/* Mobile Dropdown */}
                                     <AnimatePresence>
                                         {link.children && mobileDropdownOpen === link.name && (
