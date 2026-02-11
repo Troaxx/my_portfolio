@@ -1,0 +1,244 @@
+.navigation-container {
+    position: fixed;
+    top: 2rem;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    pointer-events: none;
+    /* Let clicks pass through around the pill */
+}
+
+/* Desktop Pill */
+.nav-pill {
+    pointer-events: auto;
+    background: rgba(22, 22, 30, 0.7);
+    /* Darker background */
+    backdrop-filter: blur(12px);
+    padding: 1rem 2.5rem;
+    /* Adjusted padding */
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    /* Slightly brighter border */
+    display: flex;
+    gap: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    align-items: center;
+}
+
+.nav-item-container {
+    position: relative;
+    padding: 0.5rem 0; /* Create a hoverable zone */
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    font-size: 1.1rem;
+    /* Bigger font size */
+    transition: all 0.2s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.nav-link:hover {
+    color: #fff;
+}
+
+.nav-link.active {
+    color: #fff;
+    font-weight: 700;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    /* Increased distance */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: #6495ed;
+    /* Accent color from PixelBlast */
+    border-radius: 50%;
+}
+
+.dropdown-arrow {
+    transition: transform 0.2s ease;
+}
+
+.dropdown-arrow.open {
+    transform: rotate(180deg);
+}
+
+/* Desktop Dropdown */
+.desktop-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    /* Align left edge with the parent item */
+    /* transform: translateX(-50%); REMOVED to align left */
+    background: rgba(22, 22, 30, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 0.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 140px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    margin-top: 0.5rem; /* Small visual gap */
+}
+
+.dropdown-item {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.dropdown-item:hover,
+.dropdown-item.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+
+/* Mobile Hamburger */
+.navigation-container.mobile {
+    justify-content: flex-end;
+    padding-right: 2rem;
+}
+
+.hamburger-btn {
+    pointer-events: auto;
+    background: rgba(22, 22, 30, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    /* Circular button */
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.hamburger-btn:active {
+    transform: scale(0.95);
+}
+
+/* Mobile Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 10, 15, 0.95);
+    /* Very dark semi-transparent */
+    backdrop-filter: blur(20px);
+    z-index: 1001;
+    /* Above everything */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+.mobile-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mobile-link-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.mobile-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.mobile-link.active,
+.mobile-link:hover {
+    color: #fff;
+    text-shadow: 0 0 20px rgba(100, 149, 237, 0.5);
+    /* Glow effect */
+}
+
+/* Mobile Dropdown */
+.mobile-dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.mobile-dropdown-toggle.open {
+    transform: rotate(180deg);
+}
+
+.mobile-dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    overflow: hidden;
+    align-items: center;
+}
+
+.mobile-link.sub-link {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.mobile-link.sub-link.active,
+.mobile-link.sub-link:hover {
+    color: #fff;
+}

@@ -1,0 +1,211 @@
+.revamp-certificates {
+    min-height: 100vh;
+    padding: 8rem 2rem 4rem;
+    display: flex;
+    justify-content: center;
+}
+
+.certificates-container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.certificates-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.cert-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 4/3;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.cert-item:hover {
+    transform: translateY(-5px);
+    border-color: #6495ed;
+}
+
+.cert-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Or cover depending on pref */
+    display: block;
+}
+
+.cert-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.cert-item:hover .cert-overlay {
+    opacity: 1;
+}
+
+.cert-overlay span {
+    color: #fff;
+    font-weight: 600;
+    border: 1px solid #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+/* Modal tweaks specific to images */
+.image-modal-content {
+    background: transparent;
+    box-shadow: none;
+    max-width: 90vh;
+    /* Landscape focus */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    animation: popIn 0.3s ease-out;
+}
+
+.image-modal-content img {
+    max-width: 100%;
+    max-height: 85vh;
+    border-radius: 8px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Missing Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 1100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.2s;
+}
+
+.modal-close:hover {
+    transform: scale(1.1);
+    color: #6495ed;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.3s, transform 0.2s;
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-btn:hover {
+    background: rgba(100, 149, 237, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+    left: -80px;
+}
+
+.next-btn {
+    right: -80px;
+}
+
+.modal-caption {
+    position: absolute;
+    bottom: -40px;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 768px) {
+    .prev-btn {
+        left: 10px;
+    }
+
+    .next-btn {
+        right: 10px;
+    }
+
+    .image-modal-content img {
+        max-height: 70vh;
+    }
+
+    .modal-caption {
+        bottom: -60px;
+        font-size: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+}
