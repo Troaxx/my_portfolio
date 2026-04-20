@@ -9,11 +9,13 @@ import { Projects } from './screens/Projects';
 import { Services } from './screens/Services';
 import { Certificates } from './screens/Certificates';
 import { Blogs } from './screens/Placeholders';
+import { AppV2 } from './v2/AppV2';
 
 function App() {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
+        <Route path="/v2" element={<AppV2 />} />
         <Route path="/" element={<RevampLayout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
