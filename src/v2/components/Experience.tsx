@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Briefcase } from 'lucide-react';
 import { Badge } from "@/components/ui/badge";
+import { PresentBadge } from './PresentBadge';
 
 export const Experience: React.FC = () => {
   const [view, setView] = useState<'Detailed' | 'Compact'>('Detailed');
@@ -13,9 +14,10 @@ export const Experience: React.FC = () => {
       roles: [
         {
           title: 'Software Engineer Intern',
-          date: 'Mar 2026 – Current',
+          date: 'Mar 2026 – Present',
           desc: 'Working as a Software Engineer Intern within the bank, contributing to backend services and internal tooling.',
-          tags: ['Java', 'Spring Boot']
+          tags: ['Java', 'Spring Boot'],
+          current: true
         }
       ]
     },
@@ -28,7 +30,8 @@ export const Experience: React.FC = () => {
           title: 'Lead Developer',
           date: '2023 – Present',
           desc: 'Created the current eventas.com.sg website and digital solutions for events. Assisted in porting the old infrastructure to a modern architecture and implemented CI/CD workflows.',
-          tags: ['Next.js', 'TypeScript', 'CI/CD']
+          tags: ['Next.js', 'TypeScript', 'CI/CD'],
+          current: true
         }
       ]
     },
@@ -41,7 +44,8 @@ export const Experience: React.FC = () => {
           title: 'Web Developer Intern',
           date: 'Aug 2025 – Aug 2026',
           desc: 'Currently working on the revamp of akiraxtkd.com, modernizing the web presence and user experience.',
-          tags: ['TypeScript', 'CI/CD']
+          tags: ['TypeScript', 'CI/CD'],
+          current: false
         }
       ]
     },
@@ -54,7 +58,8 @@ export const Experience: React.FC = () => {
           title: 'Co-Founder & Lead Developer',
           date: 'Aug 2025 – Present',
           desc: 'Led a team of 3 on product implementation, testing, and incremental improvement of prototypes.',
-          tags: ['HTML', 'CSS', 'JavaScript']
+          tags: ['HTML', 'CSS', 'JavaScript'],
+          current: true
         }
       ]
     }
@@ -100,6 +105,7 @@ export const Experience: React.FC = () => {
                     <h4 className="text-sm font-medium text-zinc-300 flex items-center gap-2">
                       <Briefcase className="w-3.5 h-3.5 text-zinc-500" />
                       {role.title}
+                      {role.current && <PresentBadge />}
                     </h4>
                     <span className="text-[11px] uppercase tracking-wider text-zinc-500">{role.date}</span>
                   </div>

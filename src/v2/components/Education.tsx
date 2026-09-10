@@ -1,6 +1,7 @@
 import React from 'react';
 import { GraduationCap } from 'lucide-react';
 import { Badge } from "@/components/ui/badge";
+import { PresentBadge } from './PresentBadge';
 
 export const Education: React.FC = () => {
   const educationList = [
@@ -42,9 +43,13 @@ export const Education: React.FC = () => {
             <div className="flex flex-col gap-1 mb-4">
               <h3 className="text-base font-semibold text-zinc-200 flex items-center flex-wrap gap-2">
                 {edu.degree}
-                <Badge variant="outline" className="text-[9px] uppercase tracking-wider border-zinc-700 text-zinc-400 bg-zinc-900 ml-1">
-                  {edu.status}
-                </Badge>
+                {edu.status === 'Current' ? (
+                  <PresentBadge className="ml-1" />
+                ) : (
+                  <Badge variant="outline" className="text-[9px] uppercase tracking-wider border-zinc-700 text-zinc-400 bg-zinc-900 ml-1">
+                    {edu.status}
+                  </Badge>
+                )}
               </h3>
               <span className="text-sm text-zinc-400">{edu.school}</span>
               <span className="text-xs text-zinc-500">{edu.duration}</span>

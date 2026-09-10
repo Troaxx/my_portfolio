@@ -7,6 +7,8 @@ import { Skills } from './components/Skills';
 import { Experience } from './components/Experience';
 import { Education } from './components/Education';
 import { Projects } from './components/Projects';
+import { Services } from './components/Services';
+import { Connect } from './components/Connect';
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 export const AppV2: React.FC = () => {
@@ -27,6 +29,10 @@ export const AppV2: React.FC = () => {
         <section id="projects" className="pt-16">
           <Projects />
         </section>
+        <section id="services" className="pt-16">
+          <Services />
+        </section>
+        <Connect />
       </Layout>
     </TooltipProvider>
   );
