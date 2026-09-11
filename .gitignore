@@ -30,3 +30,7 @@ dist-ssr
 
 # Documentation
 README.md
+CLAUDE.md
+
+# Orchestration state (local session tracking, not for commit)
+orchestration-state.md
