@@ -21,7 +21,6 @@ export const Navbar: React.FC = () => {
         </div>
         <nav className="hidden md:flex items-center gap-8">
           <a href="#about" className="hover:text-zinc-100 transition-colors">About</a>
-          <a href="#skills" className="hover:text-zinc-100 transition-colors">Skills</a>
           <a href="#experience" className="hover:text-zinc-100 transition-colors">Experience</a>
           <a href="#education" className="hover:text-zinc-100 transition-colors">Education</a>
           <a href="#projects" className="hover:text-zinc-100 transition-colors">Projects</a>

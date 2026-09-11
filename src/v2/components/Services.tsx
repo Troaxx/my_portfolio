@@ -1,23 +1,23 @@
 import React from 'react';
 import { Card } from "@/components/ui/card";
-import { Code2, Server, Smartphone } from 'lucide-react';
+import { Code2, Search, Brain } from 'lucide-react';
 
 export const Services: React.FC = () => {
   const services = [
     {
       icon: Code2,
-      title: "Service Title",
-      description: "Placeholder description — replace with a real service offering.",
+      title: "Freelance Software Developer / Consultant",
+      description: "End-to-end software development and technical consulting for individuals and businesses.",
     },
     {
-      icon: Server,
-      title: "Service Title 2",
-      description: "Placeholder description — replace with a real service offering.",
+      icon: Search,
+      title: "SEO Optimization",
+      description: "Improving search visibility and organic reach for websites and products.",
     },
     {
-      icon: Smartphone,
-      title: "Service Title 3",
-      description: "Placeholder description — replace with a real service offering.",
+      icon: Brain,
+      title: "AI/ML Projects",
+      description: "Building and integrating AI/ML-powered features into web and mobile applications.",
     },
   ];
 
