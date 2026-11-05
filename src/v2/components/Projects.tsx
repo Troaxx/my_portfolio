@@ -38,10 +38,17 @@ const resolvePath = (path: string) => {
 const projects: Project[] = [
   {
     title: 'Sonar',
-    description: 'Built a Discord Bot that reads Reddit stories in voice chat. Currently reaching over 7k+ users.',
+    description: 'Built a Discord Bot that reads Reddit stories in voice chat. Currently reaching over 100k+ users.',
     tech: ['Discord.js', 'TypeScript', 'Next.js'],
     liveDemoUrl: 'https://sonar-bot.vercel.app/',
     type: 'Product',
+    image: resolvePath('/sonar.png'),
+    learningTakeaways: [
+      'Grew a Discord bot that reads Reddit stories aloud in voice chat to over 100k+ users',
+      'Built the bot in TypeScript with Discord.js, handling voice channel playback for many servers at once',
+      'Shipped a Next.js landing page so new servers can discover and invite the bot',
+      'Learned to operate a live product at scale: reliability, uptime and user feedback',
+    ],
   },
   {
     title: 'OCBC Ignite Challenge 2025',
@@ -117,6 +124,7 @@ const projects: Project[] = [
     githubUrl: 'https://github.com/Troaxx/mldp',
     liveDemoUrl: 'https://bmeq9mmb7pngrvgm4if4hk.streamlit.app/',
     type: 'Personal',
+    image: resolvePath('/mldp.png'),
     story: [
       { text: 'Applied machine learning engineering project for the Machine Learning for Developers module at Temasek Polytechnic, using the UCI Diabetes 130-US Hospitals dataset (101,766 encounters).', emphasis: 'bold' },
       { text: "Framed as a binary classification problem: flagging diabetic patients at high risk of readmission within 30 days of discharge. Because a missed at-risk patient costs roughly 200x more than a false alarm ($15,000 emergency readmission vs. $75 preventive outreach), the project prioritized recall over raw accuracy, and selected Logistic Regression with class weighting over ensemble models after they collapsed to near-zero recall on the imbalanced dataset." },
