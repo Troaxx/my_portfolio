@@ -71,17 +71,17 @@ export const Experience: React.FC = () => {
       <div className="flex items-center justify-between border-b border-zinc-800/50 pb-4 h-[38px]">
         <div>
           <h2 className="text-sm font-semibold tracking-widest text-zinc-100 uppercase">Experience</h2>
-          <p className="text-xs text-zinc-500 uppercase tracking-widest mt-1">Professional Journey</p>
+          <p className="text-[13px] text-zinc-500 uppercase tracking-widest mt-1">Professional Journey</p>
         </div>
         <div className="flex gap-1 bg-zinc-900/50 p-1 rounded-full border border-zinc-800/50">
           <button 
-            className={`text-xs px-3 py-1 rounded-full transition-all duration-300 ${view === 'Detailed' ? 'bg-zinc-800 text-zinc-100 shadow-sm' : 'text-zinc-500 hover:text-zinc-300'}`}
+            className={`text-[13px] px-3 py-1 rounded-full transition-all duration-300 ${view === 'Detailed' ? 'bg-zinc-800 text-zinc-100 shadow-sm' : 'text-zinc-500 hover:text-zinc-300'}`}
             onClick={() => setView('Detailed')}
           >
             Detailed
           </button>
           <button 
-            className={`text-xs px-3 py-1 rounded-full transition-all duration-300 ${view === 'Compact' ? 'bg-zinc-800 text-zinc-100 shadow-sm' : 'text-zinc-500 hover:text-zinc-300'}`}
+            className={`text-[13px] px-3 py-1 rounded-full transition-all duration-300 ${view === 'Compact' ? 'bg-zinc-800 text-zinc-100 shadow-sm' : 'text-zinc-500 hover:text-zinc-300'}`}
             onClick={() => setView('Compact')}
           >
             Compact
@@ -95,7 +95,7 @@ export const Experience: React.FC = () => {
             <div className="flex flex-col md:flex-row md:items-start justify-between gap-2 mb-4">
               <div>
                 <h3 className="text-base font-semibold text-zinc-200">{exp.company}</h3>
-                <span className="text-xs text-zinc-500">{exp.location} • {exp.duration}</span>
+                <span className="text-[13px] text-zinc-500">{exp.location} • {exp.duration}</span>
               </div>
             </div>
             <div className="space-y-6">
@@ -107,7 +107,7 @@ export const Experience: React.FC = () => {
                       {role.title}
                       {role.current && <PresentBadge />}
                     </h4>
-                    <span className="text-[11px] uppercase tracking-wider text-zinc-500">{role.date}</span>
+                    <span className="text-xs uppercase tracking-wider text-zinc-500">{role.date}</span>
                   </div>
                   {view === 'Detailed' && role.desc && (
                     <div className="mt-2 text-sm text-zinc-400 leading-relaxed">
@@ -115,7 +115,7 @@ export const Experience: React.FC = () => {
                       {role.tags.length > 0 && (
                         <div className="flex flex-wrap gap-2 mt-3">
                           {role.tags.map(tag => (
-                            <Badge variant="secondary" key={tag} className="text-[10px] uppercase tracking-wider bg-zinc-800/40 text-zinc-400 hover:bg-zinc-800 border-zinc-800/50 font-medium">
+                            <Badge variant="secondary" key={tag} className="text-xs uppercase tracking-wider bg-zinc-800/40 text-zinc-400 hover:bg-zinc-800 border-zinc-800/50 font-medium">
                               {tag}
                             </Badge>
                           ))}

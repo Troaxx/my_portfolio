@@ -26,7 +26,7 @@ export const Services: React.FC = () => {
       <div className="flex items-center justify-between border-b border-zinc-800/50 pb-4 h-[38px]">
         <div>
           <h2 className="text-sm font-semibold tracking-widest text-zinc-100 uppercase">SERVICES</h2>
-          <p className="text-xs text-zinc-500 uppercase tracking-widest mt-1">What I Can Help With</p>
+          <p className="text-[13px] text-zinc-500 uppercase tracking-widest mt-1">What I Can Help With</p>
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

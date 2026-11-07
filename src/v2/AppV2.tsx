@@ -7,6 +7,7 @@ import { Experience } from './components/Experience';
 import { Education } from './components/Education';
 import { Projects } from './components/Projects';
 import { Services } from './components/Services';
+import { Demos } from './components/Demos';
 import { Connect } from './components/Connect';
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Separator } from "@/components/ui/separator";
@@ -31,6 +32,9 @@ export const AppV2: React.FC = () => {
         </section>
         <section id="services" className="pt-16">
           <Services />
+        </section>
+        <section id="demos" className="pt-16">
+          <Demos />
         </section>
         <Connect />
       </Layout>
