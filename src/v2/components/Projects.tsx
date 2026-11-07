@@ -186,7 +186,7 @@ export const Projects: React.FC = () => {
       <div className="flex items-center justify-between border-b border-zinc-800/50 pb-4 h-[38px]">
         <div>
           <h2 className="text-sm font-semibold tracking-widest text-zinc-100 uppercase">Projects</h2>
-          <p className="text-xs text-zinc-500 uppercase tracking-widest mt-1">Featured Work</p>
+          <p className="text-[13px] text-zinc-500 uppercase tracking-widest mt-1">Featured Work</p>
         </div>
       </div>
 
@@ -241,7 +241,7 @@ export const Projects: React.FC = () => {
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-4 mt-6 text-xs text-zinc-500 font-medium tracking-wide">
+            <div className="flex flex-wrap items-center gap-4 mt-6 text-[13px] text-zinc-500 font-medium tracking-wide">
               {project.tech.map((t, i) => (
                 <div key={i} className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: techColors[t] || '#888' }} />
@@ -283,7 +283,7 @@ export const Projects: React.FC = () => {
 
               <div className="flex items-center flex-wrap gap-3 mb-4 pr-8">
                 <h3 className="text-xl font-semibold text-zinc-100">{selectedProject.title}</h3>
-                <span className="px-2 py-0.5 rounded-full border border-zinc-800 text-zinc-400 bg-zinc-900/50 text-[10px] font-mono tracking-wider uppercase">
+                <span className="px-2 py-0.5 rounded-full border border-zinc-800 text-zinc-400 bg-zinc-900/50 text-xs font-mono tracking-wider uppercase">
                   {selectedProject.type}
                 </span>
               </div>
@@ -322,7 +322,7 @@ export const Projects: React.FC = () => {
               {selectedProject.tech.length > 0 && (
                 <div className="flex flex-wrap gap-2 mb-8">
                   {selectedProject.tech.map((t, i) => (
-                    <span key={i} className="px-2.5 py-1 rounded-full border border-zinc-800 text-zinc-400 bg-zinc-900/50 text-xs">
+                    <span key={i} className="px-2.5 py-1 rounded-full border border-zinc-800 text-zinc-400 bg-zinc-900/50 text-[13px]">
                       {t}
                     </span>
                   ))}
@@ -331,7 +331,7 @@ export const Projects: React.FC = () => {
 
               {selectedProject.features && selectedProject.features.length > 0 && (
                 <div className="mb-10">
-                  <h4 className="flex items-center gap-2 text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-5">
+                  <h4 className="flex items-center gap-2 text-[13px] font-semibold tracking-widest text-zinc-500 uppercase mb-5">
                     <Layers className="w-4 h-4" /> Key Features
                   </h4>
                   <ul className="space-y-4">
@@ -355,7 +355,7 @@ export const Projects: React.FC = () => {
 
               {selectedProject.learningTakeaways && selectedProject.learningTakeaways.length > 0 && (
                 <div className="mb-8">
-                  <h4 className="flex items-center gap-2 text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-5">
+                  <h4 className="flex items-center gap-2 text-[13px] font-semibold tracking-widest text-zinc-500 uppercase mb-5">
                     <Trophy className="w-4 h-4" /> Key Takeaways
                   </h4>
                   <ul className="space-y-4">

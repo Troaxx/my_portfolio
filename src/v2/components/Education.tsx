@@ -32,7 +32,7 @@ export const Education: React.FC = () => {
       <div className="flex items-center justify-between border-b border-zinc-800/50 pb-4 h-[38px]">
         <div>
           <h2 className="text-sm font-semibold tracking-widest text-zinc-100 uppercase">Education</h2>
-          <p className="text-xs text-zinc-500 uppercase tracking-widest mt-1">Academic Background</p>
+          <p className="text-[13px] text-zinc-500 uppercase tracking-widest mt-1">Academic Background</p>
         </div>
       </div>
 
@@ -46,25 +46,25 @@ export const Education: React.FC = () => {
                 {edu.status === 'Current' ? (
                   <PresentBadge className="ml-1" />
                 ) : (
-                  <Badge variant="outline" className="text-[9px] uppercase tracking-wider border-zinc-700 text-zinc-400 bg-zinc-900 ml-1">
+                  <Badge variant="outline" className="text-xs uppercase tracking-wider border-zinc-700 text-zinc-400 bg-zinc-900 ml-1">
                     {edu.status}
                   </Badge>
                 )}
               </h3>
               <span className="text-sm text-zinc-400">{edu.school}</span>
-              <span className="text-xs text-zinc-500">{edu.duration}</span>
+              <span className="text-[13px] text-zinc-500">{edu.duration}</span>
             </div>
             
             {edu.activities.length > 0 && (
               <div className="space-y-3 mt-4">
                 <div className="flex flex-col gap-2">
-                  <h4 className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wider flex items-center gap-2 pt-1">
+                  <h4 className="text-xs font-semibold text-zinc-500 uppercase tracking-wider flex items-center gap-2 pt-1">
                     <GraduationCap className="w-3.5 h-3.5 text-zinc-500" />
                     Co-curricular Activities
                   </h4>
                   <ul className="mt-1 space-y-1">
                     {edu.activities.map((act, aIdx) => (
-                      <li key={aIdx} className="flex items-start gap-2 text-[11px] text-zinc-400">
+                      <li key={aIdx} className="flex items-start gap-2 text-xs text-zinc-400">
                         <span className="mt-[5px] w-1 h-1 rounded-full bg-zinc-500 shrink-0" />
                         {act}
                       </li>

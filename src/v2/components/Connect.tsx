@@ -9,7 +9,7 @@ export const Connect: React.FC = () => {
       <div className="flex items-center justify-between border-b border-zinc-800/50 pb-4 h-[38px]">
         <div>
           <h2 className="text-sm font-semibold tracking-widest text-zinc-100 uppercase">CONNECT</h2>
-          <p className="text-xs text-zinc-500 uppercase tracking-widest mt-1">Let's Build Something</p>
+          <p className="text-[13px] text-zinc-500 uppercase tracking-widest mt-1">Let's Build Something</p>
         </div>
       </div>
       <div className="space-y-10">
